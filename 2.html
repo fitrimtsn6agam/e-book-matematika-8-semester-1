@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 2: Teorema Pythagoras | Matematika Kelas VIII</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #e67e22;
+            --bg: #fdfbf7;
+            --card-bg: #ffffff;
+            --text: #333;
+            --muted: #666;
+            --border: #eee;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: var(--bg); color: var(--text); line-height: 1.7; }
+
+        /* Navigation */
+        nav {
+            background: rgba(255,255,255,0.95);
+            padding: 1rem 5%;
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--primary); }
+        .nav-links a { text-decoration: none; color: var(--text); margin-left: 20px; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Hero */
+        header {
+            padding: 120px 10% 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #ece9e6 0%, #ffffff 100%);
+        }
+        .chapter-badge {
+            display: inline-block;
+            background: var(--primary); color: white;
+            padding: 5px 15px; border-radius: 20px;
+            font-size: 0.8rem; margin-bottom: 20px;
+        }
+        h1 { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+        .subtitle { font-size: 1.2rem; color: var(--muted); max-width: 700px; margin: 0 auto 30px; }
+        .author-info { font-size: 0.9rem; color: var(--muted); margin-top: 20px; }
+
+        /* Main Content */
+        main { padding: 60px 10%; max-width: 1200px; margin: 0 auto; }
+        
+        .section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .section-header {
+            display: flex; align-items: center; gap: 15px;
+            margin-bottom: 30px; border-bottom: 2px solid var(--border); padding-bottom: 15px;
+        }
+        .section-letter {
+            width: 50px; height: 50px;
+            background: var(--accent); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: bold;
+        }
+        .section-title { font-size: 1.8rem; color: var(--primary); }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; margin-top: 20px;
+        }
+
+        .content-card {
+            background: #f8f9fa;
+            border-radius: 10px; padding: 25px;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.2s;
+        }
+        .content-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .card-title { font-size: 1.2rem; font-weight: bold; color: var(--primary); margin-bottom: 10px; }
+        .card-desc { font-size: 0.95rem; color: var(--muted); }
+
+        .definition-box {
+            background: #fff3e0;
+            border-left: 4px solid var(--accent);
+            padding: 20px; border-radius: 8px;
+            margin: 20px 0;
+        }
+        .definition-box h4 { color: var(--accent); margin-bottom: 10px; }
+
+        .perspective-box {
+            background: #e8f5e9;
+            border-left: 4px solid #27ae60;
+            padding: 20px; border-radius: 8px;
+            margin: 20px 0;
+        }
+        .perspective-box h4 { color: #27ae60; margin-bottom: 10px; }
+
+        .video-btn {
+            display: inline-block;
+            background: var(--primary); color: white;
+            padding: 10px 20px; border-radius: 5px;
+            text-decoration: none; margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .video-btn:hover { background: #34495e; }
+
+        /* Table */
+        table {
+            width: 100%; border-collapse: collapse; margin-top: 20px;
+            background: white; border-radius: 10px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--primary); color: white; }
+        tr:hover { background: #f8f9fa; }
+
+        /* Keywords */
+        .keywords {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+        }
+        .keyword-tag {
+            background: var(--primary); color: white;
+            padding: 5px 15px; border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Quiz Section */
+        .quiz-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 40px; border-radius: 15px;
+            text-align: center; margin: 40px 0;
+        }
+        .quiz-box h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .quiz-btn {
+            display: inline-block;
+            background: white; color: #667eea;
+            padding: 12px 30px; border-radius: 5px;
+            text-decoration: none; font-weight: bold;
+            margin-top: 20px; transition: transform 0.2s;
+        }
+        .quiz-btn:hover { transform: scale(1.05); }
+
+        /* Navigation Footer */
+        .nav-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            margin: 40px 0; padding: 20px;
+            background: var(--card-bg); border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .nav-footer a {
+            text-decoration: none; color: var(--primary);
+            font-weight: bold; display: flex; align-items: center; gap: 10px;
+        }
+        .nav-footer a:hover { color: var(--accent); }
+
+        /* Footer */
+        footer {
+            background: var(--primary); color: white;
+            text-align: center; padding: 30px; margin-top: 60px;
+        }
+        footer p { margin: 5px 0; font-size: 0.9rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .section { padding: 25px; }
+            .nav-footer { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">MATEMATIKA VIII</div>
+        <div class="nav-links">
+            <a href="index.html">← Daftar Isi</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="chapter-badge">BAB 02 · GEOMETRI</div>
+        <h1>Teorema Pythagoras</h1>
+        <p class="subtitle">
+            Menyingkap rahasia hubungan harmonis antar sisi segitiga siku-siku — sebuah hukum abadi yang menunjukkan betapa telitinya Sang Pencipta mengatur alam semesta dengan ukuran dan keseimbangan yang sempurna.
+        </p>
+        <p class="author-info">
+            <strong>Fitri Eka Wahyuni, S.Pd.</strong> · MTsN 6 Agam
+        </p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Section A -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">A</div>
+                <h2 class="section-title">Pengertian Teorema Pythagoras</h2>
+            </div>
+            <p>
+                Teorema Pythagoras adalah salah satu dalil paling fundamental dalam matematika yang menyatakan hubungan kuadrat antara sisi-sisi segitiga siku-siku. Teorema ini menjadi fondasi bagi berbagai cabang ilmu, mulai dari geometri, trigonometri, hingga fisika dan teknik.
+            </p>
+            <p style="margin-top: 15px;">
+                Dalam perspektif Islam, keteraturan hubungan antar sisi segitiga siku-siku merupakan cerminan dari <em>itqan</em> (kesempurnaan) ciptaan Allah. Allah SWT berfirman yang artinya: <em>"Sesungguhnya Kami menciptakan segala sesuatu menurut ukuran."</em> (QS. Al-Qamar: 49). Setiap bangun datar, termasuk segitiga, tunduk pada hukum matematika yang konsisten — sebuah tanda kebesaran Allah yang patut ditadabburi.
+            </p>
+
+            <div class="definition-box">
+                <h4>📌 Definisi Teorema Pythagoras</h4>
+                <p>
+                    Teorema Pythagoras menyatakan bahwa dalam suatu segitiga siku-siku, kuadrat panjang sisi miring (hipotenusa) sama dengan jumlah kuadrat panjang kedua sisi siku-sikunya.
+                </p>
+                <p style="text-align: center; font-size: 1.5rem; margin: 20px 0; font-weight: bold; color: var(--accent);">
+                    c² = a² + b²
+                </p>
+                <p>Dengan <strong>c</strong> adalah hipotenusa (sisi terpanjang, berhadapan dengan sudut siku-siku), sedangkan <strong>a</strong> dan <strong>b</strong> adalah sisi-sisi siku-siku.</p>
+            </div>
+
+            <div class="perspective-box">
+                <h4>🕌 Perspektif Islam: Ayat Kauniyah dalam Geometri</h4>
+                <p>
+                    Hubungan harmonis c² = a² + b² yang berlaku universal — dari segitiga kecil di atas kertas hingga struktur piramida raksasa — menunjukkan bahwa matematika adalah bahasa universal ciptaan Allah. Mempelajari teorema ini adalah bentuk <em>tadabbur</em> terhadap ayat-ayat kauniyah Allah yang terpapar di alam semesta.
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Pengertian Teorema Pythagoras</a>
+        </div>
+
+        <!-- Section B -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">B</div>
+                <h2 class="section-title">Pembuktian Teorema Pythagoras</h2>
+            </div>
+            <p>
+                Teorema Pythagoras telah dibuktikan dengan lebih dari 370 cara berbeda sepanjang sejarah. Pembuktian ini menunjukkan keindahan logika matematika dan kedalaman pemikiran para ilmuwan dari berbagai peradaban — termasuk peradaban Islam yang memberikan kontribusi besar dalam geometri.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📐</div>
+                    <h3 class="card-title">Pembuktian Geometris</h3>
+                    <p class="card-desc">
+                        Menggunakan luas persegi pada masing-masing sisi segitiga siku-siku. Luas persegi pada hipotenusa sama dengan jumlah luas kedua persegi pada sisi siku-siku.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔺</div>
+                    <h3 class="card-title">Pembuktian dengan Luas</h3>
+                    <p class="card-desc">
+                        Menyusun empat segitiga siku-siku identik membentuk persegi besar, lalu membandingkan luas bagian dalam dan luar.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📏</div>
+                    <h3 class="card-title">Pembuktian Aljabar</h3>
+                    <p class="card-desc">
+                        Menggunakan identitas aljabar (a+b)² = a² + 2ab + b² untuk menurunkan hubungan c² = a² + b².
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🧮</div>
+                    <h3 class="card-title">Pembuktian dengan Kesebangunan</h3>
+                    <p class="card-desc">
+                        Memanfaatkan garis tinggi pada hipotenusa yang membagi segitiga menjadi dua segitiga sebangun.
+                    </p>
+                </div>
+            </div>
+
+            <div class="definition-box">
+                <h4>📌 Pembuktian Sederhana dengan Luas Persegi</h4>
+                <p style="margin: 10px 0;">
+                    Susun empat segitiga siku-siku (sisi a, b, c) dalam persegi besar bersisi (a+b):
+                </p>
+                <p style="text-align: center; font-size: 1.1rem; margin: 15px 0; font-family: monospace; color: var(--primary);">
+                    Luas persegi besar = 4 × Luas segitiga + Luas persegi kecil<br>
+                    (a + b)² = 4 × (½ab) + c²<br>
+                    a² + 2ab + b² = 2ab + c²<br>
+                    <strong>a² + b² = c²</strong> ∎
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Pembuktian Teorema Pythagoras</a>
+        </div>
+
+        <!-- Section C -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">C</div>
+                <h2 class="section-title">Menghitung Panjang Sisi Segitiga Siku-Siku</h2>
+            </div>
+            <p>
+                Aplikasi langsung Teorema Pythagoras adalah menghitung panjang salah satu sisi segitiga siku-siku jika dua sisi lainnya diketahui. Ini menjadi dasar berbagai perhitungan dalam kehidupan sehari-hari.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📐</div>
+                    <h3 class="card-title">Mencari Hipotenusa</h3>
+                    <p class="card-desc">
+                        Jika kedua sisi siku-siku diketahui:<br>
+                        <strong>c = √(a² + b²)</strong>
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📏</div>
+                    <h3 class="card-title">Mencari Sisi Siku-Siku</h3>
+                    <p class="card-desc">
+                        Jika hipotenusa dan satu sisi diketahui:<br>
+                        <strong>a = √(c² - b²)</strong> atau <strong>b = √(c² - a²)</strong>
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔢</div>
+                    <h3 class="card-title">Contoh Soal</h3>
+                    <p class="card-desc">
+                        Segitiga dengan sisi 3 cm dan 4 cm:<br>
+                        c = √(9 + 16) = √25 = <strong>5 cm</strong>
+                    </p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Menghitung Sisi Segitiga</a>
+        </div>
+
+        <!-- Section D -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">D</div>
+                <h2 class="section-title">Kebalikan Teorema Pythagoras & Triple Pythagoras</h2>
+            </div>
+            <p>
+                Kebalikan Teorema Pythagoras digunakan untuk menentukan jenis segitiga berdasarkan panjang sisi-sisinya. Sementara itu, Triple Pythagoras adalah kumpulan tiga bilangan bulat positif yang memenuhi hubungan a² + b² = c².
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📐</div>
+                    <h3 class="card-title">Segitiga Siku-Siku</h3>
+                    <p class="card-desc">
+                        Jika <strong>c² = a² + b²</strong>, maka segitiga tersebut <em>siku-siku</em>.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔺</div>
+                    <h3 class="card-title">Segitiga Lancip</h3>
+                    <p class="card-desc">
+                        Jika <strong>c² < a² + b²</strong>, maka segitiga tersebut <em>lancip</em>.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔻</div>
+                    <h3 class="card-title">Segitiga Tumpul</h3>
+                    <p class="card-desc">
+                        Jika <strong>c² > a² + b²</strong>, maka segitiga tersebut <em>tumpul</em>.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔢</div>
+                    <h3 class="card-title">Triple Pythagoras</h3>
+                    <p class="card-desc">
+                        Contoh: (3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25), (6, 8, 10).
+                    </p>
+                </div>
+            </div>
+
+            <div class="definition-box">
+                <h4>📌 Rumus Umum Triple Pythagoras</h4>
+                <p style="margin: 10px 0;">
+                    Untuk sembarang bilangan bulat positif m dan n (dengan m > n), triple Pythagoras dapat dibentuk dengan rumus:
+                </p>
+                <p style="text-align: center; font-size: 1.2rem; margin: 15px 0; font-weight: bold; color: var(--accent);">
+                    a = m² - n² &nbsp; | &nbsp; b = 2mn &nbsp; | &nbsp; c = m² + n²
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Kebalikan & Triple Pythagoras</a>
+        </div>
+
+        <!-- Section E -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">E</div>
+                <h2 class="section-title">Perbandingan Sisi Segitiga Siku-Siku Istimewa</h2>
+            </div>
+            <p>
+                Segitiga siku-siku istimewa adalah segitiga siku-siku dengan sudut-sudut khusus yang memiliki perbandingan sisi tetap. Pemahaman ini sangat berguna dalam trigonometri dan berbagai aplikasi praktis.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📐</div>
+                    <h3 class="card-title">Segitiga 45°-45°-90°</h3>
+                    <p class="card-desc">
+                        Segitiga siku-siku sama kaki dengan perbandingan sisi:<br>
+                        <strong>1 : 1 : √2</strong><br>
+                        (sisi : sisi : hipotenusa)
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔺</div>
+                    <h3 class="card-title">Segitiga 30°-60°-90°</h3>
+                    <p class="card-desc">
+                        Setengah dari segitiga sama sisi dengan perbandingan sisi:<br>
+                        <strong>1 : √3 : 2</strong><br>
+                        (depan 30° : depan 60° : hipotenusa)
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">✏️</div>
+                    <h3 class="card-title">Aplikasi</h3>
+                    <p class="card-desc">
+                        Digunakan untuk menghitung tinggi segitiga sama sisi, diagonal persegi, diagonal ruang kubus, dan berbagai masalah geometri lainnya.
+                    </p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Segitiga Siku-Siku Istimewa</a>
+        </div>
+
+        <!-- Section F -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">F</div>
+                <h2 class="section-title">Ruang Lingkup Pembahasan</h2>
+            </div>
+            <p>
+                Ruang lingkup pembahasan Bab 2 mencakup berbagai aspek yang saling berkaitan untuk membangun pemahaman komprehensif tentang Teorema Pythagoras dan penerapannya.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📖</div>
+                    <h3 class="card-title">Pembuktian Teorema</h3>
+                    <p class="card-desc">Berbagai metode pembuktian Teorema Pythagoras.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📏</div>
+                    <h3 class="card-title">Menghitung Sisi</h3>
+                    <p class="card-desc">Menentukan panjang sisi segitiga siku-siku.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔀</div>
+                    <h3 class="card-title">Kebalikan Teorema</h3>
+                    <p class="card-desc">Menentukan jenis segitiga berdasarkan sisi-sisinya.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔢</div>
+                    <h3 class="card-title">Triple Pythagoras</h3>
+                    <p class="card-desc">Kumpulan bilangan bulat yang memenuhi teorema.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📐</div>
+                    <h3 class="card-title">Segitiga Istimewa</h3>
+                    <p class="card-desc">Perbandingan sisi pada segitiga 45-45-90 dan 30-60-90.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🌍</div>
+                    <h3 class="card-title">Penerapan</h3>
+                    <p class="card-desc">Aplikasi dalam kehidupan sehari-hari dan berbagai bidang ilmu.</p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Ruang Lingkup Pembahasan</a>
+        </div>
+
+        <!-- Section G -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">G</div>
+                <h2 class="section-title">Penerapan Teorema Pythagoras dalam Kehidupan</h2>
+            </div>
+            <p>
+                Teorema Pythagoras memiliki peran strategis dalam berbagai bidang kehidupan. Pemahaman terhadap teorema ini membuka pintu untuk memahami berbagai fenomena dan menyelesaikan masalah praktis.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🏗️</div>
+                    <h3 class="card-title">Arsitektur & Konstruksi</h3>
+                    <p class="card-desc">Menghitung panjang tangga, kemiringan atap, dan memastikan sudut siku-siku pada bangunan.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🧭</div>
+                    <h3 class="card-title">Navigasi</h3>
+                    <p class="card-desc">Menghitung jarak terpendek antara dua titik di peta atau di laut.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📡</div>
+                    <h3 class="card-title">Teknologi & GPS</h3>
+                    <p class="card-desc">Sistem penentuan posisi menggunakan prinsip jarak dan koordinat berbasis Pythagoras.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🎨</div>
+                    <h3 class="card-title">Seni & Desain</h3>
+                    <p class="card-desc">Proporsi dalam desain grafis, arsitektur, dan seni visual.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">⚽</div>
+                    <h3 class="card-title">Olahraga</h3>
+                    <p class="card-desc">Menghitung jarak tempuh bola, lintasan atlet, dan sudut tendangan.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🕌</div>
+                    <h3 class="card-title">Penguatan Iman</h3>
+                    <p class="card-desc">Merenungkan keteraturan geometri sebagai bentuk tadabbur ayat kauniyah Allah.</p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Penerapan Teorema Pythagoras</a>
+        </div>
+
+        <!-- Section H -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">H</div>
+                <h2 class="section-title">Perbandingan Perspektif Umum dan Islam</h2>
+            </div>
+            <p>
+                Berikut adalah perbandingan mendasar antara perspektif umum (sains modern) dan perspektif Islam dalam memandang Teorema Pythagoras.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Perspektif Umum (Sains)</th>
+                        <th>Perspektif Islam</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sumber Asal</strong></td>
+                        <td>Penemuan Pythagoras (Yunani, ±500 SM) melalui observasi dan logika</td>
+                        <td>Ilmu dari Allah yang diungkapkan melalui akal yang dianugerahkan-Nya; hubungan geometris adalah sunnatullah</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tujuan Fungsi</strong></td>
+                        <td>Memudahkan perhitungan jarak, konstruksi, dan pemodelan geometris</td>
+                        <td>Memahami keteraturan ciptaan Allah sebagai tanda kebesaran-Nya dan menjalankan tugas kekhalifahan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dasar Kajian</strong></td>
+                        <td>Empiris, logis, deduktif-aksiomatik</td>
+                        <td>Empiris + tadabbur ayat kauniyah sebagai bentuk ibadah dan pendekatan diri kepada Allah</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Universalitas</strong></td>
+                        <td>Hukum matematika yang konsisten di seluruh alam semesta</td>
+                        <td>Cerminan kesatuan tauhid — satu Pencipta, satu hukum yang mengatur alam</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pendekatan Etis</strong></td>
+                        <td>Netral secara nilai, tergantung aplikasi</td>
+                        <td>Terikat nilai tauhid, kemaslahatan, dan tanggung jawab kekhalifahan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tujuan Akhir</strong></td>
+                        <td>Pengetahuan dan aplikasi teknologi</td>
+                        <td>Mengenal Allah (ma'rifatullah) dan menjalankan tugas kekhalifahan di muka bumi</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Perbandingan Perspektif</a>
+        </div>
+
+        <!-- Section I -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">✦</div>
+                <h2 class="section-title">Urgensi Mempelajari Teorema Pythagoras</h2>
+            </div>
+            <p>
+                Di era kemajuan sains dan teknologi, pemahaman tentang Teorema Pythagoras menjadi sangat penting karena beberapa alasan strategis berikut:
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🎓</div>
+                    <h3 class="card-title">Fondasi Geometri & Trigonometri</h3>
+                    <p class="card-desc">Prasyarat untuk menguasai trigonometri, vektor, kalkulus, dan geometri analitik.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🏗️</div>
+                    <h3 class="card-title">Aplikasi Teknik</h3>
+                    <p class="card-desc">Digunakan dalam arsitektur, teknik sipil, mesin, dan berbagai bidang rekayasa.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">💻</div>
+                    <h3 class="card-title">Literasi Digital</h3>
+                    <p class="card-desc">Dasar algoritma grafis komputer, game, dan pemrosesan citra digital.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🌍</div>
+                    <h3 class="card-title">Pemahaman Ruang</h3>
+                    <p class="card-desc">Melatih kemampuan berpikir spasial dan visualisasi tiga dimensi.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🕌</div>
+                    <h3 class="card-title">Penguatan Iman</h3>
+                    <p class="card-desc">Bentuk tadabbur ayat kauniyah yang meningkatkan keimanan melalui pengenalan keteraturan ciptaan Allah.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">💡</div>
+                    <h3 class="card-title">Berpikir Logis</h3>
+                    <p class="card-desc">Melatih kemampuan berpikir deduktif, sistematis, dan pembuktian matematis.</p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Urgensi Mempelajari</a>
+        </div>
+
+        <!-- Keywords -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">✦</div>
+                <h2 class="section-title">Kata Kunci Bab Ini</h2>
+            </div>
+            <div class="keywords">
+                <span class="keyword-tag">Teorema Pythagoras</span>
+                <span class="keyword-tag">Hipotenusa</span>
+                <span class="keyword-tag">Segitiga Siku-Siku</span>
+                <span class="keyword-tag">Pembuktian</span>
+                <span class="keyword-tag">Kebalikan Teorema</span>
+                <span class="keyword-tag">Triple Pythagoras</span>
+                <span class="keyword-tag">Segitiga 45-45-90</span>
+                <span class="keyword-tag">Segitiga 30-60-90</span>
+                <span class="keyword-tag">Diagonal</span>
+                <span class="keyword-tag">Ayat Kauniyah</span>
+            </div>
+            <blockquote style="margin-top: 30px; border-left: 4px solid var(--accent); padding-left: 20px; font-style: italic; color: var(--muted);">
+                "Dan Dia telah menciptakan segala sesuatu dan Dia menetap-kan ukurannya dengan tepat."
+                <br><strong>— QS. Al-Furqan [25]: 2</strong>
+            </blockquote>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="quiz-box">
+            <h3>📝 Uji Pemahaman Anda</h3>
+            <p>
+                Setelah mempelajari Bab 2, ukur pemahaman Anda melalui uji formatif yang telah disiapkan.<br>
+                Jawab 10 pertanyaan pilihan ganda dan esai singkat.
+            </p>
+            <a href="uji-formatif-2.html" class="quiz-btn">📝 Ikuti Uji Formatif Bab 2 →</a>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="nav-footer">
+            <a href="1.html">← Sebelumnya: Bab 1 Bilangan Berpangkat</a>
+            <a href="3.html">Selanjutnya → Bab 3: Persamaan & Pertidaksamaan Linear</a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>© 2026 · Fitri Eka Wahyuni, S.Pd.</strong></p>
+        <p>MTsN 6 Agam · Hak Cipta Dilindungi Undang-Undang</p>
+        <p><a href="mailto:fitri.ekawahyuni27@gmail.com">fitri.ekawahyuni27@gmail.com</a></p>
+    </footer>
+
+</body>
+</html>

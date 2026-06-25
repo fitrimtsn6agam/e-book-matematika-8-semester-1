@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 3: Persamaan & Pertidaksamaan Linear Satu Variabel | Matematika Kelas VIII</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #e67e22;
+            --bg: #fdfbf7;
+            --card-bg: #ffffff;
+            --text: #333;
+            --muted: #666;
+            --border: #eee;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: var(--bg); color: var(--text); line-height: 1.7; }
+
+        /* Navigation */
+        nav {
+            background: rgba(255,255,255,0.95);
+            padding: 1rem 5%;
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--primary); }
+        .nav-links a { text-decoration: none; color: var(--text); margin-left: 20px; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Hero */
+        header {
+            padding: 120px 10% 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #ece9e6 0%, #ffffff 100%);
+        }
+        .chapter-badge {
+            display: inline-block;
+            background: var(--primary); color: white;
+            padding: 5px 15px; border-radius: 20px;
+            font-size: 0.8rem; margin-bottom: 20px;
+        }
+        h1 { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+        .subtitle { font-size: 1.2rem; color: var(--muted); max-width: 700px; margin: 0 auto 30px; }
+        .author-info { font-size: 0.9rem; color: var(--muted); margin-top: 20px; }
+
+        /* Main Content */
+        main { padding: 60px 10%; max-width: 1200px; margin: 0 auto; }
+        
+        .section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .section-header {
+            display: flex; align-items: center; gap: 15px;
+            margin-bottom: 30px; border-bottom: 2px solid var(--border); padding-bottom: 15px;
+        }
+        .section-letter {
+            width: 50px; height: 50px;
+            background: var(--accent); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: bold;
+        }
+        .section-title { font-size: 1.8rem; color: var(--primary); }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; margin-top: 20px;
+        }
+
+        .content-card {
+            background: #f8f9fa;
+            border-radius: 10px; padding: 25px;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.2s;
+        }
+        .content-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .card-title { font-size: 1.2rem; font-weight: bold; color: var(--primary); margin-bottom: 10px; }
+        .card-desc { font-size: 0.95rem; color: var(--muted); }
+
+        .definition-box {
+            background: #fff3e0;
+            border-left: 4px solid var(--accent);
+            padding: 20px; border-radius: 8px;
+            margin: 20px 0;
+        }
+        .definition-box h4 { color: var(--accent); margin-bottom: 10px; }
+
+        .perspective-box {
+            background: #e8f5e9;
+            border-left: 4px solid #27ae60;
+            padding: 20px; border-radius: 8px;
+            margin: 20px 0;
+        }
+        .perspective-box h4 { color: #27ae60; margin-bottom: 10px; }
+
+        .video-btn {
+            display: inline-block;
+            background: var(--primary); color: white;
+            padding: 10px 20px; border-radius: 5px;
+            text-decoration: none; margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .video-btn:hover { background: #34495e; }
+
+        /* Table */
+        table {
+            width: 100%; border-collapse: collapse; margin-top: 20px;
+            background: white; border-radius: 10px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--primary); color: white; }
+        tr:hover { background: #f8f9fa; }
+
+        /* Keywords */
+        .keywords {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+        }
+        .keyword-tag {
+            background: var(--primary); color: white;
+            padding: 5px 15px; border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Quiz Section */
+        .quiz-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 40px; border-radius: 15px;
+            text-align: center; margin: 40px 0;
+        }
+        .quiz-box h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .quiz-btn {
+            display: inline-block;
+            background: white; color: #667eea;
+            padding: 12px 30px; border-radius: 5px;
+            text-decoration: none; font-weight: bold;
+            margin-top: 20px; transition: transform 0.2s;
+        }
+        .quiz-btn:hover { transform: scale(1.05); }
+
+        /* Navigation Footer */
+        .nav-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            margin: 40px 0; padding: 20px;
+            background: var(--card-bg); border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .nav-footer a {
+            text-decoration: none; color: var(--primary);
+            font-weight: bold; display: flex; align-items: center; gap: 10px;
+        }
+        .nav-footer a:hover { color: var(--accent); }
+
+        /* Footer */
+        footer {
+            background: var(--primary); color: white;
+            text-align: center; padding: 30px; margin-top: 60px;
+        }
+        footer p { margin: 5px 0; font-size: 0.9rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .section { padding: 25px; }
+            .nav-footer { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">MATEMATIKA VIII</div>
+        <div class="nav-links">
+            <a href="index.html">← Daftar Isi</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="chapter-badge">BAB 03 · ALJABAR</div>
+        <h1>Persamaan & Pertidaksamaan Linear Satu Variabel</h1>
+        <p class="subtitle">
+            Menyelami keindahan aljabar — bahasa simbol yang memungkinkan kita menemukan nilai yang tersembunyi dan batasan yang pasti, sebuah cerminan keadilan dan ketepatan Sang Pencipta yang menetapkan segala sesuatu dengan ukuran yang adil.
+        </p>
+        <p class="author-info">
+            <strong>Fitri Eka Wahyuni, S.Pd.</strong> · MTsN 6 Agam
+        </p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Section A -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">A</div>
+                <h2 class="section-title">Pengertian Persamaan Linear Satu Variabel</h2>
+            </div>
+            <p>
+                Persamaan Linear Satu Variabel (PLSV) adalah kalimat terbuka yang memiliki satu variabel dengan pangkat tertinggi satu, dihubungkan oleh tanda sama dengan (=). PLSV menjadi fondasi penting dalam aljabar karena mengajarkan kita cara menemukan nilai yang belum diketahui berdasarkan hubungan kesetaraan.
+            </p>
+            <p style="margin-top: 15px;">
+                Dalam perspektif Islam, konsep kesetaraan dalam persamaan linear mengingatkan kita pada prinsip <em>al-'adl</em> (keadilan) yang diajarkan Allah SWT. Allah berfirman yang artinya: <em>"Sesungguhnya Allah menyuruh (kamu) berlaku adil dan berbuat kebajikan..."</em> (QS. An-Nahl: 16). Kedua ruas persamaan harus seimbang, sebagaimana keadilan harus ditegakkan dengan seimbang di setiap sisi.
+            </p>
+
+            <div class="definition-box">
+                <h4>📌 Definisi PLSV</h4>
+                <p>
+                    Persamaan Linear Satu Variabel adalah kalimat terbuka yang dihubungkan oleh tanda sama dengan (=), memiliki satu variabel, dan pangkat tertinggi variabel tersebut adalah satu.
+                </p>
+                <p style="text-align: center; font-size: 1.3rem; margin: 15px 0; font-weight: bold; color: var(--accent);">
+                    Bentuk umum: ax + b = 0, dengan a ≠ 0
+                </p>
+                <p>Contoh: 2x + 3 = 11, 5y - 7 = 18, 3m = 15</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🔤</div>
+                    <h3 class="card-title">Variabel</h3>
+                    <p class="card-desc">
+                        Huruf yang mewakili bilangan yang belum diketahui nilainya. Contoh: x, y, m, p.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔢</div>
+                    <h3 class="card-title">Konstanta</h3>
+                    <p class="card-desc">
+                        Bilangan tetap (tidak memuat variabel) dalam suatu bentuk aljabar. Contoh: 3, -7, 15.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">✖️</div>
+                    <h3 class="card-title">Koefisien</h3>
+                    <p class="card-desc">
+                        Bilangan yang memuat variabel. Contoh: pada 2x, koefisiennya adalah 2.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📖</div>
+                    <h3 class="card-title">Kalimat Terbuka</h3>
+                    <p class="card-desc">
+                        Kalimat matematika yang memuat variabel dan belum dapat ditentukan nilai kebenarannya.
+                    </p>
+                </div>
+            </div>
+
+            <div class="perspective-box">
+                <h4>🕌 Perspektif Islam: Keadilan dalam Persamaan</h4>
+                <p>
+                    Prinsip kesetaraan dalam persamaan linear — bahwa apa yang dilakukan pada ruas kiri harus dilakukan pula pada ruas kanan — mencerminkan prinsip keadilan ilahi. Allah SWT Maha Adil yang tidak akan menzalimi seseorang walau sebesar biji zarrah. Mempelajari PLSV melatih kita untuk bersikap adil dan seimbang dalam berpikir.
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Pengertian PLSV</a>
+        </div>
+
+        <!-- Section B -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">B</div>
+                <h2 class="section-title">Sifat-Sifat Persamaan Linear</h2>
+            </div>
+            <p>
+                Persamaan linear memiliki sifat-sifat fundamental yang menjadi dasar dalam penyelesaiannya. Pemahaman terhadap sifat-sifat ini memungkinkan kita mengubah bentuk persamaan tanpa mengubah nilai kebenarannya — sebuah prinsip yang mengingatkan kita pada ketetapan hukum Allah yang tidak berubah.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">➕</div>
+                    <h3 class="card-title">Sifat Penjumlahan</h3>
+                    <p class="card-desc">
+                        Jika a = b, maka a + c = b + c<br>
+                        Kedua ruas dapat ditambah dengan bilangan yang sama.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">➖</div>
+                    <h3 class="card-title">Sifat Pengurangan</h3>
+                    <p class="card-desc">
+                        Jika a = b, maka a - c = b - c<br>
+                        Kedua ruas dapat dikurangi dengan bilangan yang sama.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">✖️</div>
+                    <h3 class="card-title">Sifat Perkalian</h3>
+                    <p class="card-desc">
+                        Jika a = b, maka a × c = b × c<br>
+                        Kedua ruas dapat dikali dengan bilangan yang sama.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">➗</div>
+                    <h3 class="card-title">Sifat Pembagian</h3>
+                    <p class="card-desc">
+                        Jika a = b, maka a ÷ c = b ÷ c (c ≠ 0)<br>
+                        Kedua ruas dapat dibagi dengan bilangan yang sama (bukan nol).
+                    </p>
+                </div>
+            </div>
+
+            <div class="definition-box">
+                <h4>📌 Prinsip Kesetaraan (Equality Principle)</h4>
+                <p style="margin: 10px 0;">
+                    Operasi yang dilakukan pada satu ruas persamaan <strong>harus</strong> dilakukan pula pada ruas lainnya agar kesetaraan tetap terjaga. Prinsip ini adalah fondasi dari seluruh penyelesaian persamaan linear.
+                </p>
+                <p style="text-align: center; font-size: 1.1rem; margin: 15px 0; font-family: monospace; color: var(--primary);">
+                    Jika x + 5 = 12, maka:<br>
+                    x + 5 - 5 = 12 - 5<br>
+                    x = 7 ✓
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Sifat-Sifat Persamaan Linear</a>
+        </div>
+
+        <!-- Section C -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">C</div>
+                <h2 class="section-title">Menyelesaikan Persamaan Linear Satu Variabel</h2>
+            </div>
+            <p>
+                Menyelesaikan PLSV berarti mencari nilai variabel yang membuat persamaan menjadi kalimat benar (kesetaraan terpenuhi). Nilai ini disebut <em>penyelesaian</em> atau <em>akar</em> dari persamaan.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🔄</div>
+                    <h3 class="card-title">Langkah 1: Sederhanakan</h3>
+                    <p class="card-desc">
+                        Hilangkan tanda kurung dengan sifat distributif, kemudian gabungkan suku-suku sejenis.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Langkah 2: Pisahkan</h3>
+                    <p class="card-desc">
+                        Kumpulkan suku yang memuat variabel di satu ruas dan konstanta di ruas lainnya.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Langkah 3: Isolasi Variabel</h3>
+                    <p class="card-desc">
+                        Gunakan sifat penjumlahan/pengurangan untuk memisahkan variabel dari konstanta.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">✅</div>
+                    <h3 class="card-title">Langkah 4: Selesaikan</h3>
+                    <p class="card-desc">
+                        Gunakan sifat perkalian/pembagian untuk mendapatkan nilai variabel.
+                    </p>
+                </div>
+            </div>
+
+            <div class="definition-box">
+                <h4>📌 Contoh Penyelesaian PLSV</h4>
+                <p style="margin: 10px 0;"><strong>Soal:</strong> Selesaikan 3x + 7 = 22</p>
+                <p style="text-align: center; font-size: 1.1rem; margin: 15px 0; font-family: monospace; color: var(--primary);">
+                    3x + 7 = 22<br>
+                    3x + 7 - 7 = 22 - 7 &nbsp; (kedua ruas dikurangi 7)<br>
+                    3x = 15<br>
+                    3x ÷ 3 = 15 ÷ 3 &nbsp; (kedua ruas dibagi 3)<br>
+                    <strong>x = 5</strong> ✓<br><br>
+                    <em>Pemeriksaan: 3(5) + 7 = 15 + 7 = 22 ✓</em>
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Menyelesaikan PLSV</a>
+        </div>
+
+        <!-- Section D -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">D</div>
+                <h2 class="section-title">Pengertian Pertidaksamaan Linear Satu Variabel</h2>
+            </div>
+            <p>
+                Pertidaksamaan Linear Satu Variabel (PtLSV) adalah kalimat terbuka yang memiliki satu variabel dengan pangkat tertinggi satu, dihubungkan oleh tanda pertidaksamaan: <, >, ≤, atau ≥. Berbeda dengan persamaan yang menghasilkan satu nilai pasti, pertidaksamaan menghasilkan himpunan penyelesaian berupa rentang nilai.
+            </p>
+            <p style="margin-top: 15px;">
+                Dalam perspektif Islam, konsep pertidaksamaan mengingatkan kita pada adanya <em>hudud</em> (batasan-batasan) yang ditetapkan Allah. Allah berfirman yang artinya: <em>"Itulah batas-batas (hudud) Allah, maka janganlah kamu melanggarnya..."</em> (QS. Al-Baqarah: 229). Kehidupan manusia pun memiliki batas-batas yang harus dijaga — antara halal dan haram, antara yang diperbolehkan dan yang dilarang.
+            </p>
+
+            <div class="definition-box">
+                <h4>📌 Definisi PtLSV</h4>
+                <p>
+                    Pertidaksamaan Linear Satu Variabel adalah kalimat terbuka yang dihubungkan oleh tanda pertidaksamaan (<, >, ≤, ≥), memiliki satu variabel, dan pangkat tertinggi variabel adalah satu.
+                </p>
+                <p style="text-align: center; font-size: 1.3rem; margin: 15px 0; font-weight: bold; color: var(--accent);">
+                    Bentuk umum: ax + b < 0, ax + b > 0, ax + b ≤ 0, ax + b ≥ 0
+                </p>
+                <p>Contoh: 2x + 3 > 7, 5y - 4 ≤ 11, 3m < 15</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">⬅️</div>
+                    <h3 class="card-title">Tanda < (Kurang dari)</h3>
+                    <p class="card-desc">
+                        Nilai di sebelah kiri lebih kecil dari nilai di sebelah kanan.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">➡️</div>
+                    <h3 class="card-title">Tanda > (Lebih dari)</h3>
+                    <p class="card-desc">
+                        Nilai di sebelah kiri lebih besar dari nilai di sebelah kanan.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔽</div>
+                    <h3 class="card-title">Tanda ≤ (Kurang dari atau sama dengan)</h3>
+                    <p class="card-desc">
+                        Nilai di sebelah kiri lebih kecil atau sama dengan nilai di sebelah kanan.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔼</div>
+                    <h3 class="card-title">Tanda ≥ (Lebih dari atau sama dengan)</h3>
+                    <p class="card-desc">
+                        Nilai di sebelah kiri lebih besar atau sama dengan nilai di sebelah kanan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="perspective-box">
+                <h4>🕌 Perspektif Islam: Batasan dan Hudud</h4>
+                <p>
+                    Pertidaksamaan mengajarkan kita tentang batasan dan batas-batas yang harus dijaga. Dalam Islam, Allah telah menetapkan <em>hudud</em> (batasan-batasan) dalam berbagai aspek kehidupan — ibadah, muamalah, akhlak. Melanggar batas-batas ini berarti melampaui ketentuan Allah. Mempelajari PtLSV melatih kesadaran kita akan pentingnya batasan dan kepatuhan terhadap aturan.
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Pengertian PtLSV</a>
+        </div>
+
+        <!-- Section E -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">E</div>
+                <h2 class="section-title">Sifat-Sifat Pertidaksamaan Linear</h2>
+            </div>
+            <p>
+                Pertidaksamaan linear memiliki sifat-sifat yang mirip dengan persamaan, namun dengan satu perbedaan krusial: tanda pertidaksamaan akan <strong>berbalik arah</strong> jika kedua ruas dikali atau dibagi dengan bilangan negatif.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">➕</div>
+                    <h3 class="card-title">Sifat Penjumlahan</h3>
+                    <p class="card-desc">
+                        Jika a < b, maka a + c < b + c<br>
+                        Tanda pertidaksamaan <strong>tidak berubah</strong>.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">➖</div>
+                    <h3 class="card-title">Sifat Pengurangan</h3>
+                    <p class="card-desc">
+                        Jika a < b, maka a - c < b - c<br>
+                        Tanda pertidaksamaan <strong>tidak berubah</strong>.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">✖️</div>
+                    <h3 class="card-title">Sifat Perkalian (+)</h3>
+                    <p class="card-desc">
+                        Jika a < b dan c > 0, maka ac < bc<br>
+                        Tanda pertidaksamaan <strong>tidak berubah</strong>.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">⚠️</div>
+                    <h3 class="card-title">Sifat Perkalian (-)</h3>
+                    <p class="card-desc">
+                        Jika a < b dan c < 0, maka ac > bc<br>
+                        Tanda pertidaksamaan <strong>BERBALIK</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="definition-box">
+                <h4>📌 Aturan Penting: Pembalikan Tanda</h4>
+                <p style="margin: 10px 0;">
+                    Jika kedua ruas pertidaksamaan dikali atau dibagi dengan bilangan <strong>negatif</strong>, maka tanda pertidaksamaan harus <strong>dibalik arahnya</strong>:
+                </p>
+                <p style="text-align: center; font-size: 1.1rem; margin: 15px 0; font-family: monospace; color: var(--primary);">
+                    < <strong>menjadi</strong> > &nbsp; | &nbsp; > <strong>menjadi</strong> <br>
+                    ≤ <strong>menjadi</strong> ≥ &nbsp; | &nbsp; ≥ <strong>menjadi</strong> ≤
+                </p>
+                <p style="margin-top: 10px;"><strong>Contoh:</strong> -2x > 6 → bagi kedua ruas dengan -2 → x < -3 (tanda berbalik!)</p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Sifat-Sifat Pertidaksamaan</a>
+        </div>
+
+        <!-- Section F -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">F</div>
+                <h2 class="section-title">Menyelesaikan Pertidaksamaan Linear Satu Variabel</h2>
+            </div>
+            <p>
+                Menyelesaikan PtLSV berarti mencari himpunan nilai variabel yang membuat pertidaksamaan menjadi kalimat benar. Hasilnya berupa himpunan penyelesaian yang dapat disajikan dalam bentuk garis bilangan atau notasi interval.
+            </p>
+
+            <div class="definition-box">
+                <h4>📌 Contoh Penyelesaian PtLSV</h4>
+                <p style="margin: 10px 0;"><strong>Soal:</strong> Selesaikan 2x - 5 > 7</p>
+                <p style="text-align: center; font-size: 1.1rem; margin: 15px 0; font-family: monospace; color: var(--primary);">
+                    2x - 5 > 7<br>
+                    2x - 5 + 5 > 7 + 5 &nbsp; (kedua ruas ditambah 5)<br>
+                    2x > 12<br>
+                    2x ÷ 2 > 12 ÷ 2 &nbsp; (kedua ruas dibagi 2)<br>
+                    <strong>x > 6</strong> ✓<br><br>
+                    <em>Himpunan penyelesaian: {x | x > 6, x ∈ bilangan real}</em>
+                </p>
+            </div>
+
+            <div class="definition-box">
+                <h4>📌 Contoh dengan Pembalikan Tanda</h4>
+                <p style="margin: 10px 0;"><strong>Soal:</strong> Selesaikan -3x + 4 ≤ 13</p>
+                <p style="text-align: center; font-size: 1.1rem; margin: 15px 0; font-family: monospace; color: var(--primary);">
+                    -3x + 4 ≤ 13<br>
+                    -3x + 4 - 4 ≤ 13 - 4<br>
+                    -3x ≤ 9<br>
+                    -3x ÷ (-3) ≥ 9 ÷ (-3) &nbsp; (tanda berbalik!)<br>
+                    <strong>x ≥ -3</strong> ✓
+                </p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📏</div>
+                    <h3 class="card-title">Garis Bilangan</h3>
+                    <p class="card-desc">
+                        Himpunan penyelesaian dapat digambarkan pada garis bilangan dengan titik terbuka (○) untuk < atau > dan titik tertutup (●) untuk ≤ atau ≥.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📐</div>
+                    <h3 class="card-title">Notasi Interval</h3>
+                    <p class="card-desc">
+                        x > 6 ditulis (6, ∞)<br>
+                        x ≤ -3 ditulis (-∞, -3]
+                    </p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Menyelesaikan PtLSV</a>
+        </div>
+
+        <!-- Section G -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">G</div>
+                <h2 class="section-title">Ruang Lingkup Pembahasan</h2>
+            </div>
+            <p>
+                Ruang lingkup pembahasan Bab 3 mencakup berbagai aspek yang saling berkaitan untuk membangun pemahaman komprehensif tentang persamaan dan pertidaksamaan linear satu variabel.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📖</div>
+                    <h3 class="card-title">Konsep Dasar</h3>
+                    <p class="card-desc">Variabel, konstanta, koefisien, suku, kalimat terbuka.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">⚖️</div>
+                    <h3 class="card-title">PLSV</h3>
+                    <p class="card-desc">Pengertian, sifat-sifat, dan penyelesaian persamaan linear.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">PtLSV</h3>
+                    <p class="card-desc">Pengertian, sifat-sifat, dan penyelesaian pertidaksamaan linear.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📏</div>
+                    <h3 class="card-title">Garis Bilangan</h3>
+                    <p class="card-desc">Penyajian himpunan penyelesaian pada garis bilangan.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🧩</div>
+                    <h3 class="card-title">Model Matematika</h3>
+                    <p class="card-desc">Menerjemahkan masalah kontekstual ke dalam bentuk PLSV/PtLSV.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🌍</div>
+                    <h3 class="card-title">Penerapan</h3>
+                    <p class="card-desc">Aplikasi dalam kehidupan sehari-hari dan berbagai bidang.</p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Ruang Lingkup Pembahasan</a>
+        </div>
+
+        <!-- Section H -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">H</div>
+                <h2 class="section-title">Penerapan dalam Kehidupan Sehari-Hari</h2>
+            </div>
+            <p>
+                Persamaan dan pertidaksamaan linear memiliki peran strategis dalam berbagai aspek kehidupan. Pemahaman terhadap konsep ini membuka pintu untuk menyelesaikan berbagai masalah praktis.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">💰</div>
+                    <h3 class="card-title">Ekonomi & Bisnis</h3>
+                    <p class="card-desc">Menghitung titik impas (break even), keuntungan, dan perencanaan anggaran.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🛒</div>
+                    <h3 class="card-title">Perbelanjaan</h3>
+                    <p class="card-desc">Menghitung diskon, pajak, dan menentukan batas anggaran belanja.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🚗</div>
+                    <h3 class="card-title">Perjalanan</h3>
+                    <p class="card-desc">Menghitung waktu tempuh, jarak, dan kecepatan rata-rata.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🏗️</div>
+                    <h3 class="card-title">Teknik & Konstruksi</h3>
+                    <p class="card-desc">Perhitungan beban, dimensi, dan spesifikasi teknis.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🍽️</div>
+                    <h3 class="card-title">Kesehatan & Gizi</h3>
+                    <p class="card-desc">Menghitung kebutuhan kalori, dosis obat, dan indeks massa tubuh.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🕌</div>
+                    <h3 class="card-title">Penguatan Iman</h3>
+                    <p class="card-desc">Merenungkan keteraturan dan keadilan dalam hukum matematika sebagai cerminan sifat Al-'Adl (Maha Adil) Allah.</p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Penerapan dalam Kehidupan</a>
+        </div>
+
+        <!-- Section I -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">I</div>
+                <h2 class="section-title">Perbandingan Perspektif Umum dan Islam</h2>
+            </div>
+            <p>
+                Berikut adalah perbandingan mendasar antara perspektif umum (sains modern) dan perspektif Islam dalam memandang persamaan dan pertidaksamaan linear.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Perspektif Umum (Sains)</th>
+                        <th>Perspektif Islam</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sumber Asal</strong></td>
+                        <td>Penemuan manusia melalui logika dan abstraksi matematika</td>
+                        <td>Ilmu dari Allah yang dapat dipahami melalui akal yang dianugerahkan-Nya</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tujuan Fungsi</strong></td>
+                        <td>Memecahkan masalah dan memodelkan fenomena kuantitatif</td>
+                        <td>Memahami prinsip keadilan (al-'adl) dan batasan (hudud) sebagai cerminan sifat Allah</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dasar Kajian</strong></td>
+                        <td>Logis, deduktif-aksiomatik, terukur secara kuantitatif</td>
+                        <td>Logis + tadabbur atas keteraturan dan keadilan sebagai ayat kauniyah</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prinsip Kesetaraan</strong></td>
+                        <td>Hukum matematika yang konsisten dan universal</td>
+                        <td>Cerminan keadilan Allah yang Maha Adil (Al-'Adl) — tidak menzalimi siapapun</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Konsep Batasan</strong></td>
+                        <td>Himpunan penyelesaian sebagai rentang nilai yang memenuhi syarat</td>
+                        <td>Refleksi hudud (batasan) Allah yang harus dipatuhi dalam kehidupan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pendekatan Etis</strong></td>
+                        <td>Netral secara nilai, tergantung aplikasi</td>
+                        <td>Terikat nilai tauhid, keadilan, kemaslahatan, dan tanggung jawab kekhalifahan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tujuan Akhir</strong></td>
+                        <td>Pengetahuan dan aplikasi praktis</td>
+                        <td>Mengenal Allah (ma'rifatullah) dan menjalankan tugas kekhalifahan dengan adil</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Perbandingan Perspektif</a>
+        </div>
+
+        <!-- Section J -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">✦</div>
+                <h2 class="section-title">Urgensi Mempelajari PLSV dan PtLSV</h2>
+            </div>
+            <p>
+                Di era kemajuan sains dan teknologi, pemahaman tentang persamaan dan pertidaksamaan linear menjadi sangat penting karena beberapa alasan strategis berikut:
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🎓</div>
+                    <h3 class="card-title">Fondasi Aljabar</h3>
+                    <p class="card-desc">Prasyarat untuk menguasai persamaan kuadrat, sistem persamaan, fungsi, dan kalkulus.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">💻</div>
+                    <h3 class="card-title">Literasi Digital</h3>
+                    <p class="card-desc">Dasar pemrograman, algoritma, dan logika komputasi.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">💰</div>
+                    <h3 class="card-title">Literasi Finansial</h3>
+                    <p class="card-desc">Menghitung anggaran, cicilan, investasi, dan perencanaan keuangan.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">💡</div>
+                    <h3 class="card-title">Berpikir Logis</h3>
+                    <p class="card-desc">Melatih kemampuan berpikir sistematis, analitis, dan pemecahan masalah.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🌍</div>
+                    <h3 class="card-title">Pemecahan Masalah</h3>
+                    <p class="card-desc">Menerjemahkan masalah nyata ke dalam model matematika untuk solusi optimal.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🕌</div>
+                    <h3 class="card-title">Penguatan Iman</h3>
+                    <p class="card-desc">Bentuk tadabbur atas keadilan dan keteraturan ciptaan Allah yang meningkatkan keimanan.</p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Urgensi Mempelajari</a>
+        </div>
+
+        <!-- Keywords -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">✦</div>
+                <h2 class="section-title">Kata Kunci Bab Ini</h2>
+            </div>
+            <div class="keywords">
+                <span class="keyword-tag">Persamaan Linear</span>
+                <span class="keyword-tag">Pertidaksamaan Linear</span>
+                <span class="keyword-tag">Variabel</span>
+                <span class="keyword-tag">Konstanta</span>
+                <span class="keyword-tag">Koefisien</span>
+                <span class="keyword-tag">Kalimat Terbuka</span>
+                <span class="keyword-tag">Himpunan Penyelesaian</span>
+                <span class="keyword-tag">Garis Bilangan</span>
+                <span class="keyword-tag">Notasi Interval</span>
+                <span class="keyword-tag">Prinsip Kesetaraan</span>
+                <span class="keyword-tag">Al-'Adl</span>
+                <span class="keyword-tag">Hudud</span>
+            </div>
+            <blockquote style="margin-top: 30px; border-left: 4px solid var(--accent); padding-left: 20px; font-style: italic; color: var(--muted);">
+                "Sesungguhnya Allah menyuruh (kamu) berlaku adil dan berbuat kebajikan, memberi kepada kaum kerabat, dan Allah melarang dari perbuatan keji, kemungkaran dan permusuhan."
+                <br><strong>— QS. An-Nahl [16]: 90</strong>
+            </blockquote>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="quiz-box">
+            <h3>📝 Uji Pemahaman Anda</h3>
+            <p>
+                Setelah mempelajari Bab 3, ukur pemahaman Anda melalui uji formatif yang telah disiapkan.<br>
+                Jawab 10 pertanyaan pilihan ganda dan esai singkat.
+            </p>
+            <a href="uji-formatif-3.html" class="quiz-btn">📝 Ikuti Uji Formatif Bab 3 →</a>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="nav-footer">
+            <a href="2.html">← Sebelumnya: Bab 2 Teorema Pythagoras</a>
+            <a href="4.html">Selanjutnya → Bab 4: Ujian Tengah Semester (UTS)</a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>© 2026 · Fitri Eka Wahyuni, S.Pd.</strong></p>
+        <p>MTsN 6 Agam · Hak Cipta Dilindungi Undang-Undang</p>
+        <p><a href="mailto:fitri.ekawahyuni27@gmail.com">fitri.ekawahyuni27@gmail.com</a></p>
+    </footer>
+
+</body>
+</html>
