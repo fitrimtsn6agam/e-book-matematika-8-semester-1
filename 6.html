@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 6: Persamaan Garis Lurus | Matematika Kelas VIII</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #e67e22;
+            --bg: #fdfbf7;
+            --card-bg: #ffffff;
+            --text: #333;
+            --muted: #666;
+            --border: #eee;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: var(--bg); color: var(--text); line-height: 1.7; }
+
+        nav {
+            background: rgba(255,255,255,0.95);
+            padding: 1rem 5%;
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--primary); }
+        .nav-links a { text-decoration: none; color: var(--text); margin-left: 20px; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--accent); }
+
+        header {
+            padding: 120px 10% 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #ece9e6 0%, #ffffff 100%);
+        }
+        .chapter-badge {
+            display: inline-block;
+            background: var(--primary); color: white;
+            padding: 5px 15px; border-radius: 20px;
+            font-size: 0.8rem; margin-bottom: 20px;
+        }
+        h1 { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+        .subtitle { font-size: 1.2rem; color: var(--muted); max-width: 700px; margin: 0 auto 30px; }
+        .author-info { font-size: 0.9rem; color: var(--muted); margin-top: 20px; }
+
+        main { padding: 60px 10%; max-width: 1200px; margin: 0 auto; }
+        
+        .section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .section-header {
+            display: flex; align-items: center; gap: 15px;
+            margin-bottom: 30px; border-bottom: 2px solid var(--border); padding-bottom: 15px;
+        }
+        .section-letter {
+            width: 50px; height: 50px;
+            background: var(--accent); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: bold;
+        }
+        .section-title { font-size: 1.8rem; color: var(--primary); }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; margin-top: 20px;
+        }
+
+        .content-card {
+            background: #f8f9fa;
+            border-radius: 10px; padding: 25px;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.2s;
+        }
+        .content-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .card-title { font-size: 1.2rem; font-weight: bold; color: var(--primary); margin-bottom: 10px; }
+        .card-desc { font-size: 0.95rem; color: var(--muted); }
+
+        .definition-box {
+            background: #fff3e0;
+            border-left: 4px solid var(--accent);
+            padding: 20px; border-radius: 8px;
+            margin: 20px 0;
+        }
+        .definition-box h4 { color: var(--accent); margin-bottom: 10px; }
+
+        .perspective-box {
+            background: #e8f5e9;
+            border-left: 4px solid #27ae60;
+            padding: 20px; border-radius: 8px;
+            margin: 20px 0;
+        }
+        .perspective-box h4 { color: #27ae60; margin-bottom: 10px; }
+
+        .video-btn {
+            display: inline-block;
+            background: var(--primary); color: white;
+            padding: 10px 20px; border-radius: 5px;
+            text-decoration: none; margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .video-btn:hover { background: #34495e; }
+
+        table {
+            width: 100%; border-collapse: collapse; margin-top: 20px;
+            background: white; border-radius: 10px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--primary); color: white; }
+        tr:hover { background: #f8f9fa; }
+
+        .keywords {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+        }
+        .keyword-tag {
+            background: var(--primary); color: white;
+            padding: 5px 15px; border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .quiz-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 40px; border-radius: 15px;
+            text-align: center; margin: 40px 0;
+        }
+        .quiz-box h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .quiz-btn {
+            display: inline-block;
+            background: white; color: #667eea;
+            padding: 12px 30px; border-radius: 5px;
+            text-decoration: none; font-weight: bold;
+            margin-top: 20px; transition: transform 0.2s;
+        }
+        .quiz-btn:hover { transform: scale(1.05); }
+
+        .nav-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            margin: 40px 0; padding: 20px;
+            background: var(--card-bg); border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .nav-footer a {
+            text-decoration: none; color: var(--primary);
+            font-weight: bold; display: flex; align-items: center; gap: 10px;
+        }
+        .nav-footer a:hover { color: var(--accent); }
+
+        footer {
+            background: var(--primary); color: white;
+            text-align: center; padding: 30px; margin-top: 60px;
+        }
+        footer p { margin: 5px 0; font-size: 0.9rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .section { padding: 25px; }
+            .nav-footer { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MATEMATIKA VIII</div>
+        <div class="nav-links">
+            <a href="index.html">← Daftar Isi</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="chapter-badge">BAB 06 · ALJABAR GEOMETRI</div>
+        <h1>Persamaan Garis Lurus</h1>
+        <p class="subtitle">
+            Menelusuri makna garis lurus dalam matematika dan kehidupan — sebuah refleksi atas perintah Ilahi untuk berjalan di atas <em>shirath al-mustaqim</em> (jalan yang lurus), dengan arah yang pasti dan kemiringan yang terukur.
+        </p>
+        <p class="author-info">
+            <strong>Fitri Eka Wahyuni, S.Pd.</strong> · MTsN 6 Agam
+        </p>
+    </header>
+
+    <main>
+
+        <!-- Section A -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">A</div>
+                <h2 class="section-title">Mengenal Persamaan Garis Lurus dan Grafiknya</h2>
+            </div>
+            <p>
+                Persamaan garis lurus adalah persamaan yang grafiknya membentuk garis lurus pada bidang koordinat Cartesius. Bentuk umum persamaan garis lurus adalah <strong>y = mx + c</strong> atau <strong>ax + by + c = 0</strong>, dengan m adalah gradien (kemiringan) dan c adalah konstanta (titik potong sumbu-y).
+            </p>
+            <p style="margin-top: 15px;">
+                Dalam perspektif Islam, konsep "garis lurus" memiliki makna spiritual yang sangat dalam. Allah SWT mengajarkan kita untuk berdoa setiap hari: <em>"Tunjukkanlah kami jalan yang lurus (ihdina shirathal mustaqim)"</em> (QS. Al-Fatihah: 6). Garis lurus dalam matematika — yang memiliki arah pasti dan tidak berbelok — adalah cerminan matematis dari jalan hidup yang lurus, konsisten, dan berorientasi pada ridha Allah.
+            </p>
+
+            <div class="definition-box">
+                <h4>📌 Definisi Persamaan Garis Lurus</h4>
+                <p>
+                    Persamaan garis lurus adalah persamaan linear dua variabel yang grafiknya merupakan garis lurus pada bidang koordinat Cartesius.
+                </p>
+                <p style="text-align: center; font-size: 1.3rem; margin: 15px 0; font-weight: bold; color: var(--accent);">
+                    Bentuk Umum: y = mx + c<br>
+                    atau: ax + by + c = 0
+                </p>
+                <p>Dengan <strong>m</strong> = gradien (kemiringan), <strong>c</strong> = konstanta (titik potong sumbu-y)</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Grafik Garis Lurus</h3>
+                    <p class="card-desc">
+                        Himpunan titik-titik (x, y) yang memenuhi persamaan garis lurus membentuk sebuah garis lurus pada bidang koordinat.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📍</div>
+                    <h3 class="card-title">Titik Potong Sumbu-Y</h3>
+                    <p class="card-desc">
+                        Titik di mana garis memotong sumbu-y (saat x = 0). Nilainya sama dengan konstanta c.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📍</div>
+                    <h3 class="card-title">Titik Potong Sumbu-X</h3>
+                    <p class="card-desc">
+                        Titik di mana garis memotong sumbu-x (saat y = 0). Diperoleh dengan mensubstitusi y = 0.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Gradien (m)</h3>
+                    <p class="card-desc">
+                        Ukuran kemiringan garis — seberapa curam garis tersebut. Positif = naik, negatif = turun, nol = datar.
+                    </p>
+                </div>
+            </div>
+
+            <div class="perspective-box">
+                <h4>🕌 Perspektif Islam: Shirath al-Mustaqim</h4>
+                <p>
+                    Garis lurus dalam matematika memiliki arah yang pasti dan tidak berbelok-belok. Inilah cerminan dari <em>shirath al-mustaqim</em> — jalan hidup yang lurus, istiqamah, dan berorientasi pada ridha Allah. Setiap Muslim berdoa minimal 17 kali sehari agar ditunjukkan jalan yang lurus. Matematika mengajarkan kita bahwa garis lurus adalah jalur terpendek dan paling efisien antara dua titik — sebagaimana jalan Allah adalah jalan terbaik menuju kebahagiaan hakiki.
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Mengenal Persamaan Garis Lurus</a>
+        </div>
+
+        <!-- Section B -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">B</div>
+                <h2 class="section-title">Memahami Kemiringan Garis Lurus (Gradien)</h2>
+            </div>
+            <p>
+                Gradien (kemiringan) adalah ukuran numerik yang menyatakan seberapa curam suatu garis lurus. Gradien menentukan "arah" dan "kecepatan perubahan" garis — konsep yang sangat penting dalam memahami hubungan antar variabel.
+            </p>
+            <p style="margin-top: 15px;">
+                Dalam perspektif Islam, gradien dapat dimaknai sebagai <em>istiqamah</em> — konsistensi dan keteguhan dalam menjalani kehidupan. Gradien positif menunjukkan kemajuan dan pertumbuhan, gradien negatif menunjukkan penurunan, dan gradien nol menunjukkan kestabilan. Setiap fase kehidupan memiliki "gradien"-nya sendiri, dan yang terpenting adalah menjaga arah menuju ridha Allah.
+            </p>
+
+            <div class="definition-box">
+                <h4>📌 Rumus Gradien</h4>
+                <p style="margin: 10px 0;"><strong>1. Dari persamaan y = mx + c:</strong></p>
+                <p style="text-align: center; font-size: 1.2rem; margin: 10px 0; font-weight: bold; color: var(--accent);">
+                    Gradien = m
+                </p>
+                <p style="margin: 15px 0;"><strong>2. Dari dua titik (x₁, y₁) dan (x₂, y₂):</strong></p>
+                <p style="text-align: center; font-size: 1.2rem; margin: 10px 0; font-weight: bold; color: var(--accent);">
+                    m = (y₂ - y₁) / (x₂ - x₁)
+                </p>
+                <p style="margin: 15px 0;"><strong>3. Dari persamaan ax + by + c = 0:</strong></p>
+                <p style="text-align: center; font-size: 1.2rem; margin: 10px 0; font-weight: bold; color: var(--accent);">
+                    m = -a/b
+                </p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📈</div>
+                    <h3 class="card-title">Gradien Positif (m &gt; 0)</h3>
+                    <p class="card-desc">
+                        Garis naik dari kiri ke kanan. Semakin besar m, semakin curam. Contoh: y = 2x + 1 (m = 2)
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📉</div>
+                    <h3 class="card-title">Gradien Negatif (m &lt; 0)</h3>
+                    <p class="card-desc">
+                        Garis turun dari kiri ke kanan. Contoh: y = -3x + 4 (m = -3)
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">➡️</div>
+                    <h3 class="card-title">Gradien Nol (m = 0)</h3>
+                    <p class="card-desc">
+                        Garis horizontal (sejajar sumbu-x). Contoh: y = 5 (m = 0)
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">⬆️</div>
+                    <h3 class="card-title">Gradien Tak Terdefinisi</h3>
+                    <p class="card-desc">
+                        Garis vertikal (sejajar sumbu-y). Contoh: x = 3 (m = tak terdefinisi)
+                    </p>
+                </div>
+            </div>
+
+            <div class="perspective-box">
+                <h4>🕌 Perspektif Islam: Gradien sebagai Istiqamah</h4>
+                <p>
+                    Gradien positif yang konsisten mencerminkan <em>istiqamah</em> dalam kebaikan — terus naik dan berkembang menuju Allah. Allah berfirman: <em>"Sesungguhnya orang-orang yang berkata 'Tuhan kami adalah Allah' kemudian mereka istiqamah..."</em> (QS. Fussilat: 6). Gradien negatif mengingatkan kita untuk introspeksi dan bertaubat. Gradien nol mengajarkan kita tentang keseimbangan (mizan) — tidak berlebihan dan tidak kurang.
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Memahami Gradien</a>
+        </div>
+
+        <!-- Section C -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">C</div>
+                <h2 class="section-title">Sifat-Sifat Gradien & Hubungan Antar Garis Lurus</h2>
+            </div>
+            <p>
+                Gradien memiliki sifat-sifat khusus yang menentukan hubungan antara dua garis lurus atau lebih. Pemahaman terhadap sifat-sifat ini sangat penting dalam geometri analitik dan berbagai aplikasi praktis.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🟰</div>
+                    <h3 class="card-title">Garis Sejajar</h3>
+                    <p class="card-desc">
+                        Dua garis sejajar memiliki <strong>gradien yang sama</strong>:<br>
+                        m₁ = m₂<br>
+                        Contoh: y = 2x + 1 dan y = 2x - 3
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">✖️</div>
+                    <h3 class="card-title">Garis Tegak Lurus</h3>
+                    <p class="card-desc">
+                        Dua garis tegak lurus memenuhi:<br>
+                        m₁ × m₂ = -1<br>
+                        Contoh: y = 2x dan y = -½x
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔀</div>
+                    <h3 class="card-title">Garis Berpotongan</h3>
+                    <p class="card-desc">
+                        Dua garis berpotongan jika gradiennya berbeda dan tidak tegak lurus. Perpotongan terjadi di satu titik.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔄</div>
+                    <h3 class="card-title">Garis Berimpit</h3>
+                    <p class="card-desc">
+                        Dua garis berimpit jika memiliki persamaan yang ekuivalen (sama setelah disederhanakan).
+                    </p>
+                </div>
+            </div>
+
+            <div class="definition-box">
+                <h4>📌 Ringkasan Hubungan Antar Garis</h4>
+                <table style="margin: 10px 0;">
+                    <tr><th>Hubungan</th><th>Syarat Gradien</th><th>Contoh</th></tr>
+                    <tr><td>Sejajar</td><td>m₁ = m₂</td><td>y = 2x + 1 dan y = 2x - 3</td></tr>
+                    <tr><td>Tegak Lurus</td><td>m₁ × m₂ = -1</td><td>y = 2x dan y = -½x</td></tr>
+                    <tr><td>Berpotongan</td><td>m₁ ≠ m₂</td><td>y = 2x + 1 dan y = 3x - 2</td></tr>
+                    <tr><td>Berimpit</td><td>Persamaan ekuivalen</td><td>y = 2x + 1 dan 2y = 4x + 2</td></tr>
+                </table>
+            </div>
+
+            <div class="perspective-box">
+                <h4>🕌 Perspektif Islam: Hubungan Sosial dalam Garis</h4>
+                <p>
+                    Hubungan antar garis lurus mencerminkan berbagai bentuk hubungan sosial manusia. Garis sejajar adalah saudara seiman yang berjalan beriringan tanpa saling mendahului. Garis tegak lurus adalah hubungan yang saling melengkapi dan menguatkan (seperti suami-istri dalam sakinah). Garis berpotongan adalah pertemuan dua jalan yang menghasilkan titik temu — sebuah silaturahmi. Allah SWT berfirman: <em>"Dan tolong-menolonglah kamu dalam (mengerjakan) kebajikan dan takwa, dan jangan tolong-menolong dalam berbuat dosa dan pelanggaran."</em> (QS. Al-Maidah: 2).
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Sifat Gradien & Hubungan Garis</a>
+        </div>
+
+        <!-- Section D -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">D</div>
+                <h2 class="section-title">Menentukan Persamaan Garis Lurus</h2>
+            </div>
+            <p>
+                Menentukan persamaan garis lurus berarti menemukan bentuk persamaan yang memenuhi kondisi tertentu — melalui satu titik dengan gradien tertentu, melalui dua titik, atau melalui kondisi khusus lainnya.
+            </p>
+
+            <div class="definition-box">
+                <h4>📌 Rumus-Rumus Penting</h4>
+                <p style="margin: 10px 0;"><strong>1. Melalui titik (x₁, y₁) dengan gradien m:</strong></p>
+                <p style="text-align: center; font-size: 1.2rem; margin: 10px 0; font-weight: bold; color: var(--accent);">
+                    y - y₁ = m(x - x₁)
+                </p>
+                <p style="margin: 15px 0;"><strong>2. Melalui dua titik (x₁, y₁) dan (x₂, y₂):</strong></p>
+                <p style="text-align: center; font-size: 1.2rem; margin: 10px 0; font-weight: bold; color: var(--accent);">
+                    (y - y₁) / (y₂ - y₁) = (x - x₁) / (x₂ - x₁)
+                </p>
+                <p style="margin: 15px 0;"><strong>3. Garis sejajar dengan y = m₁x + c₁ melalui (x₁, y₁):</strong></p>
+                <p style="text-align: center; font-size: 1.1rem; margin: 10px 0; font-family: monospace; color: var(--primary);">
+                    Gunakan m = m₁, lalu y - y₁ = m(x - x₁)
+                </p>
+                <p style="margin: 15px 0;"><strong>4. Garis tegak lurus dengan y = m₁x + c₁ melalui (x₁, y₁):</strong></p>
+                <p style="text-align: center; font-size: 1.1rem; margin: 10px 0; font-family: monospace; color: var(--primary);">
+                    Gunakan m = -1/m₁, lalu y - y₁ = m(x - x₁)
+                </p>
+            </div>
+
+            <div class="definition-box">
+                <h4>📌 Contoh Soal</h4>
+                <p style="margin: 10px 0;"><strong>Soal 1:</strong> Tentukan persamaan garis yang melalui titik (2, 3) dengan gradien 4!</p>
+                <p style="text-align: center; font-size: 1.1rem; margin: 15px 0; font-family: monospace; color: var(--primary);">
+                    y - y₁ = m(x - x₁)<br>
+                    y - 3 = 4(x - 2)<br>
+                    y - 3 = 4x - 8<br>
+                    <strong>y = 4x - 5</strong> ✓
+                </p>
+                <p style="margin: 15px 0;"><strong>Soal 2:</strong> Tentukan persamaan garis yang melalui titik (1, 2) dan (3, 8)!</p>
+                <p style="text-align: center; font-size: 1.1rem; margin: 15px 0; font-family: monospace; color: var(--primary);">
+                    m = (8-2)/(3-1) = 6/2 = 3<br>
+                    y - 2 = 3(x - 1)<br>
+                    y - 2 = 3x - 3<br>
+                    <strong>y = 3x - 1</strong> ✓
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Menentukan Persamaan Garis Lurus</a>
+        </div>
+
+        <!-- Section E -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">E</div>
+                <h2 class="section-title">Ruang Lingkup Pembahasan</h2>
+            </div>
+            <p>
+                Ruang lingkup pembahasan Bab 6 mencakup berbagai aspek yang saling berkaitan untuk membangun pemahaman komprehensif tentang persamaan garis lurus.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📖</div>
+                    <h3 class="card-title">Persamaan Garis Lurus</h3>
+                    <p class="card-desc">Bentuk umum, bentuk eksplisit, dan bentuk implisit.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Grafik Garis Lurus</h3>
+                    <p class="card-desc">Menggambar grafik, menentukan titik potong sumbu-x dan sumbu-y.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📐</div>
+                    <h3 class="card-title">Gradien</h3>
+                    <p class="card-desc">Menghitung gradien dari persamaan, dua titik, atau grafik.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔗</div>
+                    <h3 class="card-title">Hubungan Antar Garis</h3>
+                    <p class="card-desc">Sejajar, tegak lurus, berpotongan, berimpit.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🧮</div>
+                    <h3 class="card-title">Menentukan Persamaan</h3>
+                    <p class="card-desc">Melalui satu titik + gradien, dua titik, sejajar/tegak lurus.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🌍</div>
+                    <h3 class="card-title">Penerapan</h3>
+                    <p class="card-desc">Aplikasi dalam kehidupan sehari-hari dan berbagai bidang ilmu.</p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Ruang Lingkup Pembahasan</a>
+        </div>
+
+        <!-- Section F -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">F</div>
+                <h2 class="section-title">Penerapan Persamaan Garis Lurus dalam Kehidupan</h2>
+            </div>
+            <p>
+                Persamaan garis lurus memiliki peran strategis dalam berbagai bidang kehidupan. Konsep ini menjadi fondasi bagi berbagai disiplin ilmu dan aplikasi praktis.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">💰</div>
+                    <h3 class="card-title">Ekonomi & Bisnis</h3>
+                    <p class="card-desc">Fungsi permintaan, penawaran, biaya, dan pendapatan sering dimodelkan dengan garis lurus. Titik impas (break even) adalah perpotongan dua garis.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🏗️</div>
+                    <h3 class="card-title">Arsitektur & Konstruksi</h3>
+                    <p class="card-desc">Perhitungan kemiringan atap, tangga, jalan raya, dan saluran air menggunakan konsep gradien.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🚗</div>
+                    <h3 class="card-title">Fisika & Gerak</h3>
+                    <p class="card-desc">Gerak lurus beraturan (GLB) menghasilkan grafik posisi-waktu berupa garis lurus. Gradien = kecepatan.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Statistika</h3>
+                    <p class="card-desc">Regresi linear sederhana menggunakan garis lurus untuk memodelkan hubungan antar variabel dan membuat prediksi.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🗺️</div>
+                    <h3 class="card-title">Kartografi & Navigasi</h3>
+                    <p class="card-desc">Perhitungan jarak, kemiringan medan, dan rute terpendek pada peta menggunakan konsep garis lurus.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🕌</div>
+                    <h3 class="card-title">Penguatan Iman</h3>
+                    <p class="card-desc">Merenungkan konsep "garis lurus" sebagai refleksi shirath al-mustaqim — jalan hidup yang lurus menuju ridha Allah.</p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Penerapan Persamaan Garis Lurus</a>
+        </div>
+
+        <!-- Section G -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">G</div>
+                <h2 class="section-title">Perbandingan Perspektif Umum dan Islam</h2>
+            </div>
+            <p>
+                Berikut adalah perbandingan mendasar antara perspektif umum (sains modern) dan perspektif Islam dalam memandang persamaan garis lurus.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Perspektif Umum (Sains)</th>
+                        <th>Perspektif Islam</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sumber Asal</strong></td>
+                        <td>Konsep geometri analitik yang dikembangkan Descartes dan matematikawan modern</td>
+                        <td>Ilmu dari Allah yang dapat dipahami melalui akal; garis lurus sebagai simbol shirath al-mustaqim</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tujuan Fungsi</strong></td>
+                        <td>Memodelkan hubungan linear antar variabel dan memecahkan masalah praktis</td>
+                        <td>Memahami keteraturan ciptaan Allah dan mengambil pelajaran spiritual dari konsep "garis lurus"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dasar Kajian</strong></td>
+                        <td>Logis, deduktif-aksiomatik, terukur secara kuantitatif</td>
+                        <td>Logis + tadabbur ayat kauniyah dan qauliyah sebagai bentuk ibadah</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gradien</strong></td>
+                        <td>Ukuran kemiringan dan laju perubahan</td>
+                        <td>Cerminan istiqamah — konsistensi dan keteguhan dalam kebaikan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Garis Sejajar</strong></td>
+                        <td>Dua garis dengan gradien sama yang tidak berpotongan</td>
+                        <td>Simbol ukhuwah — berjalan beriringan dalam kebaikan tanpa saling mendahului</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Garis Tegak Lurus</strong></td>
+                        <td>Dua garis dengan gradien yang perkaliannya -1</td>
+                        <td>Simbol saling melengkapi dan menguatkan (sakinah, mawaddah, warahmah)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pendekatan Etis</strong></td>
+                        <td>Netral secara nilai, tergantung aplikasi</td>
+                        <td>Terikat nilai tauhid, istiqamah, dan tanggung jawab kekhalifahan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tujuan Akhir</strong></td>
+                        <td>Pengetahuan dan aplikasi teknologi</td>
+                        <td>Mengenal Allah (ma'rifatullah) dan berjalan di atas shirath al-mustaqim</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Perbandingan Perspektif</a>
+        </div>
+
+        <!-- Section H -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">✦</div>
+                <h2 class="section-title">Urgensi Mempelajari Persamaan Garis Lurus</h2>
+            </div>
+            <p>
+                Di era kemajuan sains dan teknologi, pemahaman tentang persamaan garis lurus menjadi sangat penting karena beberapa alasan strategis berikut:
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🎓</div>
+                    <h3 class="card-title">Fondasi Matematika Lanjut</h3>
+                    <p class="card-desc">Prasyarat untuk menguasai sistem persamaan linear, fungsi kuadrat, program linear, dan kalkulus.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">💻</div>
+                    <h3 class="card-title">Literasi Digital</h3>
+                    <p class="card-desc">Dasar grafis komputer, game development, dan pemrosesan citra digital.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">💰</div>
+                    <h3 class="card-title">Literasi Finansial</h3>
+                    <p class="card-desc">Memahami fungsi biaya, pendapatan, dan titik impas dalam bisnis.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Analisis Data</h3>
+                    <p class="card-desc">Regresi linear adalah alat dasar dalam statistika dan machine learning.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">💡</div>
+                    <h3 class="card-title">Berpikir Logis</h3>
+                    <p class="card-desc">Melatih kemampuan berpikir abstrak, sistematis, dan analitis.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🕌</div>
+                    <h3 class="card-title">Penguatan Iman</h3>
+                    <p class="card-desc">Bentuk tadabbur atas konsep shirath al-mustaqim yang meningkatkan keimanan dan istiqamah.</p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Urgensi Mempelajari</a>
+        </div>
+
+        <!-- Keywords -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">✦</div>
+                <h2 class="section-title">Kata Kunci Bab Ini</h2>
+            </div>
+            <div class="keywords">
+                <span class="keyword-tag">Persamaan Garis Lurus</span>
+                <span class="keyword-tag">Gradien</span>
+                <span class="keyword-tag">Kemiringan</span>
+                <span class="keyword-tag">Grafik</span>
+                <span class="keyword-tag">Garis Sejajar</span>
+                <span class="keyword-tag">Garis Tegak Lurus</span>
+                <span class="keyword-tag">Titik Potong</span>
+                <span class="keyword-tag">y = mx + c</span>
+                <span class="keyword-tag">ax + by + c = 0</span>
+                <span class="keyword-tag">Shirath al-Mustaqim</span>
+                <span class="keyword-tag">Istiqamah</span>
+                <span class="keyword-tag">Ayat Kauniyah</span>
+            </div>
+            <blockquote style="margin-top: 30px; border-left: 4px solid var(--accent); padding-left: 20px; font-style: italic; color: var(--muted);">
+                "Tunjukkanlah kami jalan yang lurus (ihdina shirathal mustaqim), (yaitu) jalan orang-orang yang telah Engkau beri nikmat kepada mereka..."
+                <br><strong>— QS. Al-Fatihah [1]: 6-7</strong>
+            </blockquote>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="quiz-box">
+            <h3>📝 Uji Pemahaman Anda</h3>
+            <p>
+                Setelah mempelajari Bab 6, ukur pemahaman Anda melalui uji formatif yang telah disiapkan.<br>
+                Jawab 10 pertanyaan pilihan ganda dan esai singkat.
+            </p>
+            <a href="uji-formatif-6.html" class="quiz-btn">📝 Ikuti Uji Formatif Bab 6 →</a>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="nav-footer">
+            <a href="5.html">← Sebelumnya: Bab 5 Relasi dan Fungsi</a>
+            <a href="7.html">Selanjutnya → Bab 7: Ujian Akhir Semester (UAS)</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p><strong>© 2026 · Fitri Eka Wahyuni, S.Pd.</strong></p>
+        <p>MTsN 6 Agam · Hak Cipta Dilindungi Undang-Undang</p>
+        <p><a href="mailto:fitri.ekawahyuni27@gmail.com">fitri.ekawahyuni27@gmail.com</a></p>
+    </footer>
+
+</body>
+</html>
