@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 5: Relasi dan Fungsi | Matematika Kelas VIII</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #e67e22;
+            --bg: #fdfbf7;
+            --card-bg: #ffffff;
+            --text: #333;
+            --muted: #666;
+            --border: #eee;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: var(--bg); color: var(--text); line-height: 1.7; }
+
+        nav {
+            background: rgba(255,255,255,0.95);
+            padding: 1rem 5%;
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--primary); }
+        .nav-links a { text-decoration: none; color: var(--text); margin-left: 20px; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--accent); }
+
+        header {
+            padding: 120px 10% 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #ece9e6 0%, #ffffff 100%);
+        }
+        .chapter-badge {
+            display: inline-block;
+            background: var(--primary); color: white;
+            padding: 5px 15px; border-radius: 20px;
+            font-size: 0.8rem; margin-bottom: 20px;
+        }
+        h1 { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+        .subtitle { font-size: 1.2rem; color: var(--muted); max-width: 700px; margin: 0 auto 30px; }
+        .author-info { font-size: 0.9rem; color: var(--muted); margin-top: 20px; }
+
+        main { padding: 60px 10%; max-width: 1200px; margin: 0 auto; }
+        
+        .section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .section-header {
+            display: flex; align-items: center; gap: 15px;
+            margin-bottom: 30px; border-bottom: 2px solid var(--border); padding-bottom: 15px;
+        }
+        .section-letter {
+            width: 50px; height: 50px;
+            background: var(--accent); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: bold;
+        }
+        .section-title { font-size: 1.8rem; color: var(--primary); }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; margin-top: 20px;
+        }
+
+        .content-card {
+            background: #f8f9fa;
+            border-radius: 10px; padding: 25px;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.2s;
+        }
+        .content-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .card-title { font-size: 1.2rem; font-weight: bold; color: var(--primary); margin-bottom: 10px; }
+        .card-desc { font-size: 0.95rem; color: var(--muted); }
+
+        .definition-box {
+            background: #fff3e0;
+            border-left: 4px solid var(--accent);
+            padding: 20px; border-radius: 8px;
+            margin: 20px 0;
+        }
+        .definition-box h4 { color: var(--accent); margin-bottom: 10px; }
+
+        .perspective-box {
+            background: #e8f5e9;
+            border-left: 4px solid #27ae60;
+            padding: 20px; border-radius: 8px;
+            margin: 20px 0;
+        }
+        .perspective-box h4 { color: #27ae60; margin-bottom: 10px; }
+
+        .video-btn {
+            display: inline-block;
+            background: var(--primary); color: white;
+            padding: 10px 20px; border-radius: 5px;
+            text-decoration: none; margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .video-btn:hover { background: #34495e; }
+
+        table {
+            width: 100%; border-collapse: collapse; margin-top: 20px;
+            background: white; border-radius: 10px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--primary); color: white; }
+        tr:hover { background: #f8f9fa; }
+
+        .keywords {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+        }
+        .keyword-tag {
+            background: var(--primary); color: white;
+            padding: 5px 15px; border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .quiz-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 40px; border-radius: 15px;
+            text-align: center; margin: 40px 0;
+        }
+        .quiz-box h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .quiz-btn {
+            display: inline-block;
+            background: white; color: #667eea;
+            padding: 12px 30px; border-radius: 5px;
+            text-decoration: none; font-weight: bold;
+            margin-top: 20px; transition: transform 0.2s;
+        }
+        .quiz-btn:hover { transform: scale(1.05); }
+
+        .nav-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            margin: 40px 0; padding: 20px;
+            background: var(--card-bg); border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .nav-footer a {
+            text-decoration: none; color: var(--primary);
+            font-weight: bold; display: flex; align-items: center; gap: 10px;
+        }
+        .nav-footer a:hover { color: var(--accent); }
+
+        footer {
+            background: var(--primary); color: white;
+            text-align: center; padding: 30px; margin-top: 60px;
+        }
+        footer p { margin: 5px 0; font-size: 0.9rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .section { padding: 25px; }
+            .nav-footer { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MATEMATIKA VIII</div>
+        <div class="nav-links">
+            <a href="index.html">← Daftar Isi</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="chapter-badge">BAB 05 · ALJABAR LANJUT</div>
+        <h1>Relasi dan Fungsi</h1>
+        <p class="subtitle">
+            Menelusuri keindahan hubungan antar himpunan — dari relasi yang longgar hingga fungsi yang presisi, sebuah cerminan keteraturan dan kebijaksanaan Sang Pencipta yang menghubungkan segala sesuatu dengan takdir yang pasti.
+        </p>
+        <p class="author-info">
+            <strong>Fitri Eka Wahyuni, S.Pd.</strong> · MTsN 6 Agam
+        </p>
+    </header>
+
+    <main>
+
+        <!-- Section A -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">A</div>
+                <h2 class="section-title">Memahami Konsep Relasi</h2>
+            </div>
+            <p>
+                Relasi adalah hubungan antara anggota-anggota suatu himpunan dengan anggota himpunan lainnya. Dalam matematika, relasi merupakan konsep dasar yang menjadi fondasi untuk memahami fungsi — salah satu konsep paling penting dalam aljabar modern.
+            </p>
+            <p style="margin-top: 15px;">
+                Dalam perspektif Islam, konsep relasi mengingatkan kita pada hubungan antara makhluk dengan Khaliq (Pencipta), serta hubungan antar makhluk dalam tatanan kehidupan. Allah SWT berfirman yang artinya: <em>"Dan tidak ada sesuatu melainkan memuji dengan memuji-Nya..."</em> (QS. Al-Isra: 17). Segala sesuatu di alam semesta ini memiliki relasi dan kaitan satu sama lain dalam sistem yang diatur oleh sunnatullah.
+            </p>
+
+            <div class="definition-box">
+                <h4>📌 Definisi Relasi</h4>
+                <p>
+                    Relasi dari himpunan A ke himpunan B adalah aturan yang memasangkan anggota-anggota himpunan A dengan anggota-anggota himpunan B. Relasi dapat dinyatakan dalam tiga cara:
+                </p>
+                <ul style="margin: 15px 0 15px 20px;">
+                    <li><strong>Diagram Panah</strong> — visualisasi hubungan dengan panah</li>
+                    <li><strong>Himpunan Pasangan Berurutan</strong> — {(a, b) | a ∈ A, b ∈ B}</li>
+                    <li><strong>Diagram Cartesius</strong> — titik-titik pada bidang koordinat</li>
+                </ul>
+                <p style="text-align: center; font-size: 1.2rem; margin: 15px 0; font-weight: bold; color: var(--accent);">
+                    Contoh: Relasi "dua kali dari" dari A = {1, 2, 3} ke B = {2, 4, 6, 8}<br>
+                    Himpunan pasangan: {(1, 2), (2, 4), (3, 6)}
+                </p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Domain (Daerah Asal)</h3>
+                    <p class="card-desc">
+                        Himpunan semua anggota asal yang dipasangkan. Dalam contoh di atas, domain = {1, 2, 3}.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🏁</div>
+                    <h3 class="card-title">Kodomain (Daerah Kawan)</h3>
+                    <p class="card-desc">
+                        Himpunan semua anggota tujuan. Dalam contoh di atas, kodomain = {2, 4, 6, 8}.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">✨</div>
+                    <h3 class="card-title">Range (Daerah Hasil)</h3>
+                    <p class="card-desc">
+                        Himpunan anggota tujuan yang benar-benar terpasang. Range = {2, 4, 6}.
+                    </p>
+                </div>
+            </div>
+
+            <div class="perspective-box">
+                <h4>🕌 Perspektif Islam: Relasi dalam Kehidupan</h4>
+                <p>
+                    Konsep relasi dalam matematika mencerminkan hakikat kehidupan manusia yang penuh dengan hubungan — hubungan dengan Allah (habluminallah), dengan sesama manusia (habluminannas), dan dengan alam sekitar. Setiap hubungan memiliki aturan dan tanggung jawab, sebagaimana relasi matematika memiliki aturan pemasangan yang jelas.
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Konsep Relasi</a>
+        </div>
+
+        <!-- Section B -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">B</div>
+                <h2 class="section-title">Memahami Konsep Fungsi</h2>
+            </div>
+            <p>
+                Fungsi adalah relasi khusus yang memasangkan setiap anggota himpunan asal (domain) dengan <strong>tepat satu</strong> anggota himpunan tujuan (kodomain). Inilah perbedaan mendasar antara relasi dan fungsi — fungsi menuntut kepastian dan ketunggalan.
+            </p>
+            <p style="margin-top: 15px;">
+                Dalam perspektif Islam, konsep fungsi mengingatkan kita pada prinsip <em>istiqamah</em> (konsistensi) dan <em>amanah</em> (tanggung jawab). Setiap manusia memiliki fungsi dan peran yang pasti dalam kehidupan — tidak boleh ragu, tidak boleh mendua. Allah SWT berfirman yang artinya: <em>"Maka tegakkanlah dirimu pada agama yang lurus (istiqamah)..."</em> (QS. Hud: 112).
+            </p>
+
+            <div class="definition-box">
+                <h4>📌 Definisi Fungsi (Pemetaan)</h4>
+                <p>
+                    Fungsi f dari himpunan A ke himpunan B adalah relasi yang memenuhi dua syarat:
+                </p>
+                <ol style="margin: 15px 0 15px 20px;">
+                    <li>Setiap anggota A <strong>harus</strong> dipasangkan dengan anggota B</li>
+                    <li>Setiap anggota A dipasangkan dengan <strong>tepat satu</strong> anggota B (tidak boleh lebih)</li>
+                </ol>
+                <p style="text-align: center; font-size: 1.3rem; margin: 15px 0; font-weight: bold; color: var(--accent);">
+                    Notasi: f: A → B &nbsp; atau &nbsp; f(x) = y
+                </p>
+                <p>Dibaca: "f memetakan A ke B" atau "f dari x sama dengan y"</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">✅</div>
+                    <h3 class="card-title">Contoh FUNGSI</h3>
+                    <p class="card-desc">
+                        A = {1, 2, 3}, B = {a, b, c}<br>
+                        f = {(1, a), (2, b), (3, c)}<br>
+                        ✓ Setiap anggota A punya pasangan tunggal
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">❌</div>
+                    <h3 class="card-title">Bukan Fungsi</h3>
+                    <p class="card-desc">
+                        g = {(1, a), (1, b), (2, c)}<br>
+                        ✗ Anggota 1 dipasangkan ke dua anggota B<br>
+                        ✗ Anggota 3 tidak punya pasangan
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Notasi Fungsi</h3>
+                    <p class="card-desc">
+                        f(x) = 2x + 3<br>
+                        f(1) = 2(1) + 3 = 5<br>
+                        f(2) = 2(2) + 3 = 7
+                    </p>
+                </div>
+            </div>
+
+            <div class="perspective-box">
+                <h4>🕌 Perspektif Islam: Fungsi dan Tanggung Jawab</h4>
+                <p>
+                    Sebagaimana fungsi menuntut ketunggalan dan kepastian, demikian pula manusia dipanggil untuk memiliki integritas — satu hati, satu kata, satu perbuatan. Kemunafikan adalah "relasi yang bukan fungsi" — mendua dan tidak konsisten. Islam mengajarkan <em>istiqamah</em> dalam iman dan amal.
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Konsep Fungsi</a>
+        </div>
+
+        <!-- Section C -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">C</div>
+                <h2 class="section-title">Rumus dan Nilai Fungsi</h2>
+            </div>
+            <p>
+                Rumus fungsi adalah aturan yang mendefinisikan bagaimana setiap anggota domain dipetakan ke kodomain. Nilai fungsi adalah hasil pemetaan untuk input tertentu. Memahami rumus dan nilai fungsi adalah kunci untuk menguasai aljabar dan kalkulus.
+            </p>
+
+            <div class="definition-box">
+                <h4>📌 Contoh Menghitung Nilai Fungsi</h4>
+                <p style="margin: 10px 0;"><strong>Diketahui:</strong> f(x) = 3x - 5</p>
+                <p style="text-align: center; font-size: 1.1rem; margin: 15px 0; font-family: monospace; color: var(--primary);">
+                    f(2) = 3(2) - 5 = 6 - 5 = <strong>1</strong><br>
+                    f(-1) = 3(-1) - 5 = -3 - 5 = <strong>-8</strong><br>
+                    f(0) = 3(0) - 5 = <strong>-5</strong><br>
+                    f(a) = 3a - 5
+                </p>
+            </div>
+
+            <div class="definition-box">
+                <h4>📌 Mencari Nilai Input dari Nilai Fungsi</h4>
+                <p style="margin: 10px 0;"><strong>Soal:</strong> Jika f(x) = 2x + 1 dan f(a) = 11, tentukan nilai a!</p>
+                <p style="text-align: center; font-size: 1.1rem; margin: 15px 0; font-family: monospace; color: var(--primary);">
+                    f(a) = 11<br>
+                    2a + 1 = 11<br>
+                    2a = 10<br>
+                    <strong>a = 5</strong> ✓
+                </p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📝</div>
+                    <h3 class="card-title">Rumus Fungsi</h3>
+                    <p class="card-desc">
+                        Aturan pemetaan yang dinyatakan dalam bentuk aljabar, misalnya f(x) = 2x + 3, g(x) = x² - 1.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔢</div>
+                    <h3 class="card-title">Nilai Fungsi</h3>
+                    <p class="card-desc">
+                        Hasil substitusi nilai tertentu ke dalam rumus fungsi. f(5) adalah nilai fungsi f saat x = 5.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Bayangan (Image)</h3>
+                    <p class="card-desc">
+                        Istilah lain untuk nilai fungsi. Bayangan dari 2 oleh fungsi f(x) = x² adalah 4.
+                    </p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Rumus dan Nilai Fungsi</a>
+        </div>
+
+        <!-- Section D -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">D</div>
+                <h2 class="section-title">Menyajikan Fungsi</h2>
+            </div>
+            <p>
+                Fungsi dapat disajikan dalam berbagai bentuk, masing-masing memiliki keunggulan dan konteks penggunaan tersendiri. Pemahaman terhadap berbagai cara penyajian fungsi memperkaya kemampuan kita dalam menganalisis dan memecahkan masalah.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Diagram Panah</h3>
+                    <p class="card-desc">
+                        Visualisasi relasi/fungsi dengan dua himpunan yang dihubungkan panah. Sangat intuitif untuk memahami konsep dasar.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📈</div>
+                    <h3 class="card-title">Grafik Cartesius</h3>
+                    <p class="card-desc">
+                        Penyajian fungsi pada bidang koordinat (x, y). Setiap titik (x, f(x)) merupakan pasangan berurutan.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📋</div>
+                    <h3 class="card-title">Tabel Nilai</h3>
+                    <p class="card-desc">
+                        Daftar pasangan nilai x dan f(x). Berguna untuk data diskrit dan perhitungan praktis.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🧮</div>
+                    <h3 class="card-title">Rumus Aljabar</h3>
+                    <p class="card-desc">
+                        Bentuk paling umum: f(x) = ax + b (linear), f(x) = ax² + bx + c (kuadrat), dsb.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔗</div>
+                    <h3 class="card-title">Himpunan Pasangan Berurutan</h3>
+                    <p class="card-desc">
+                        {(1, 3), (2, 5), (3, 7)} — cara formal menyatakan fungsi secara matematis.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">💬</div>
+                    <h3 class="card-title">Kata-kata (Deskripsi)</h3>
+                    <p class="card-desc">
+                        "f memetakan setiap bilangan ke dua kalinya ditambah satu" — cara verbal menyatakan fungsi.
+                    </p>
+                </div>
+            </div>
+
+            <div class="definition-box">
+                <h4>📌 Contoh Penyajian Fungsi f(x) = 2x + 1</h4>
+                <p style="margin: 10px 0;"><strong>Tabel Nilai:</strong></p>
+                <table style="margin: 10px 0;">
+                    <tr><th>x</th><th>0</th><th>1</th><th>2</th><th>3</th><th>-1</th></tr>
+                    <tr><td><strong>f(x)</strong></td><td>1</td><td>3</td><td>5</td><td>7</td><td>-1</td></tr>
+                </table>
+                <p style="margin-top: 15px;"><strong>Himpunan Pasangan:</strong> {(0,1), (1,3), (2,5), (3,7), (-1,-1)}</p>
+                <p><strong>Grafik:</strong> Garis lurus yang melalui titik-titik di atas pada bidang koordinat</p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Penyajian Fungsi</a>
+        </div>
+
+        <!-- Section E -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">E</div>
+                <h2 class="section-title">Korespondensi Satu-satu</h2>
+            </div>
+            <p>
+                Korespondensi satu-satu adalah fungsi khusus di mana setiap anggota domain dipasangkan dengan <strong>tepat satu</strong> anggota kodomain, dan sebaliknya — setiap anggota kodomain juga dipasangkan dengan <strong>tepat satu</strong> anggota domain. Ini adalah bentuk relasi paling "adil" dan "sempurna".
+            </p>
+            <p style="margin-top: 15px;">
+                Dalam perspektif Islam, korespondensi satu-satu mencerminkan prinsip <em>al-'adl</em> (keadilan) dan <em>al-mizan</em> (keseimbangan) yang diajarkan Allah. Allah berfirman yang artinya: <em>"Dan Kami tetapkan ukuran (neraca keadilan) dengan adil..."</em> (QS. Al-Hadid: 25). Setiap makhluk memiliki hak dan tanggung jawab yang seimbang — tidak lebih, tidak kurang.
+            </p>
+
+            <div class="definition-box">
+                <h4>📌 Syarat Korespondensi Satu-satu</h4>
+                <p>
+                    Fungsi f: A → B disebut korespondensi satu-satu jika:
+                </p>
+                <ol style="margin: 15px 0 15px 20px;">
+                    <li>f adalah fungsi (setiap anggota A punya tepat satu pasangan di B)</li>
+                    <li>Setiap anggota B juga memiliki tepat satu pasangan di A (f bersifat onto/surjektif dan injektif)</li>
+                    <li>Jumlah anggota A = jumlah anggota B (n(A) = n(B))</li>
+                </ol>
+                <p style="text-align: center; font-size: 1.2rem; margin: 15px 0; font-weight: bold; color: var(--accent);">
+                    Contoh: A = {1, 2, 3}, B = {a, b, c}<br>
+                    f = {(1, a), (2, b), (3, c)} → KORESPONDENSI SATU-SATU ✓
+                </p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🔢</div>
+                    <h3 class="card-title">Banyaknya Korespondensi</h3>
+                    <p class="card-desc">
+                        Jika n(A) = n(B) = n, maka banyaknya korespondensi satu-satu = n!<br>
+                        Contoh: n = 3 → 3! = 3 × 2 × 1 = 6 korespondensi
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Aplikasi</h3>
+                    <p class="card-desc">
+                        Digunakan dalam pencocokan data, kriptografi, teori bilangan, dan berbagai masalah kombinatorial.
+                    </p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">⚖️</div>
+                    <h3 class="card-title">Keadilan Matematis</h3>
+                    <p class="card-desc">
+                        Korespondensi satu-satu adalah bentuk "keadilan" dalam matematika — setiap unsur mendapat hak yang sama.
+                    </p>
+                </div>
+            </div>
+
+            <div class="perspective-box">
+                <h4>🕌 Perspektif Islam: Keadilan dan Keseimbangan</h4>
+                <p>
+                    Korespondensi satu-satu adalah cerminan matematis dari prinsip keadilan ilahi. Dalam hukum waris Islam, qishash, dan muamalah, setiap pihak mendapatkan haknya secara tepat dan seimbang — tidak ada yang dirugikan, tidak ada yang diistimewakan tanpa hak. Inilah <em>al-'adl</em> yang menjadi salah satu nama terindah Allah.
+                </p>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Korespondensi Satu-satu</a>
+        </div>
+
+        <!-- Section F -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">F</div>
+                <h2 class="section-title">Ruang Lingkup Pembahasan</h2>
+            </div>
+            <p>
+                Ruang lingkup pembahasan Bab 5 mencakup berbagai aspek yang saling berkaitan untuk membangun pemahaman komprehensif tentang relasi dan fungsi.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📖</div>
+                    <h3 class="card-title">Konsep Relasi</h3>
+                    <p class="card-desc">Pengertian, cara penyajian, domain, kodomain, range.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Konsep Fungsi</h3>
+                    <p class="card-desc">Syarat fungsi, notasi, perbedaan relasi dan fungsi.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🧮</div>
+                    <h3 class="card-title">Rumus & Nilai Fungsi</h3>
+                    <p class="card-desc">Menghitung nilai fungsi, mencari input dari output.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Penyajian Fungsi</h3>
+                    <p class="card-desc">Diagram panah, grafik, tabel, rumus, himpunan pasangan.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">⚖️</div>
+                    <h3 class="card-title">Korespondensi Satu-satu</h3>
+                    <p class="card-desc">Syarat, banyak korespondensi, aplikasi.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🌍</div>
+                    <h3 class="card-title">Penerapan</h3>
+                    <p class="card-desc">Aplikasi dalam kehidupan sehari-hari dan berbagai bidang ilmu.</p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Ruang Lingkup Pembahasan</a>
+        </div>
+
+        <!-- Section G -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">G</div>
+                <h2 class="section-title">Penerapan Relasi dan Fungsi dalam Kehidupan</h2>
+            </div>
+            <p>
+                Relasi dan fungsi memiliki peran strategis dalam berbagai bidang kehidupan. Konsep ini menjadi fondasi bagi berbagai disiplin ilmu dan teknologi modern.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">💻</div>
+                    <h3 class="card-title">Ilmu Komputer</h3>
+                    <p class="card-desc">Fungsi adalah konsep dasar dalam pemrograman, database, dan algoritma. Setiap fungsi dalam kode memiliki input dan output yang jelas.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Statistika & Data</h3>
+                    <p class="card-desc">Analisis data, regresi, dan pemodelan statistik semuanya berbasis pada konsep fungsi.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">💰</div>
+                    <h3 class="card-title">Ekonomi & Bisnis</h3>
+                    <p class="card-desc">Fungsi permintaan, penawaran, biaya, dan pendapatan — semuanya dimodelkan dengan fungsi matematika.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔬</div>
+                    <h3 class="card-title">Sains & Teknik</h3>
+                    <p class="card-desc">Hukum fisika, reaksi kimia, dan model teknik semuanya dinyatakan dalam bentuk fungsi.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🔐</div>
+                    <h3 class="card-title">Kriptografi</h3>
+                    <p class="card-desc">Enkripsi dan dekripsi data menggunakan fungsi matematika yang kompleks untuk keamanan informasi.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🕌</div>
+                    <h3 class="card-title">Penguatan Iman</h3>
+                    <p class="card-desc">Merenungkan keteraturan hubungan dalam matematika sebagai bentuk tadabbur ayat kauniyah Allah.</p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Penerapan Relasi dan Fungsi</a>
+        </div>
+
+        <!-- Section H -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">H</div>
+                <h2 class="section-title">Perbandingan Perspektif Umum dan Islam</h2>
+            </div>
+            <p>
+                Berikut adalah perbandingan mendasar antara perspektif umum (sains modern) dan perspektif Islam dalam memandang relasi dan fungsi.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Perspektif Umum (Sains)</th>
+                        <th>Perspektif Islam</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sumber Asal</strong></td>
+                        <td>Konsep abstrak yang dikembangkan manusia melalui logika matematika</td>
+                        <td>Ilmu dari Allah yang dapat dipahami melalui akal yang dianugerahkan-Nya</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tujuan Fungsi</strong></td>
+                        <td>Memodelkan hubungan antar besaran dan memecahkan masalah</td>
+                        <td>Memahami keteraturan ciptaan Allah sebagai tanda kebesaran-Nya</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dasar Kajian</strong></td>
+                        <td>Logis, deduktif-aksiomatik, terukur secara kuantitatif</td>
+                        <td>Logis + tadabbur ayat kauniyah sebagai bentuk ibadah</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Korespondensi Satu-satu</strong></td>
+                        <td>Fungsi bijektif yang penting dalam teori himpunan dan kombinatorika</td>
+                        <td>Cerminan keadilan Allah (Al-'Adl) — setiap makhluk mendapat hak yang setara</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fungsi sebagai Aturan</strong></td>
+                        <td>Relasi yang memenuhi syarat ketunggalan pemetaan</td>
+                        <td>Refleksi istiqamah dan amanah — konsistensi dan tanggung jawab</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pendekatan Etis</strong></td>
+                        <td>Netral secara nilai, tergantung aplikasi</td>
+                        <td>Terikat nilai tauhid, keadilan, kemaslahatan, dan tanggung jawab kekhalifahan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tujuan Akhir</strong></td>
+                        <td>Pengetahuan dan aplikasi teknologi</td>
+                        <td>Mengenal Allah (ma'rifatullah) dan menjalankan tugas kekhalifahan</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Perbandingan Perspektif</a>
+        </div>
+
+        <!-- Section I -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">✦</div>
+                <h2 class="section-title">Urgensi Mempelajari Relasi dan Fungsi</h2>
+            </div>
+            <p>
+                Di era kemajuan sains dan teknologi, pemahaman tentang relasi dan fungsi menjadi sangat penting karena beberapa alasan strategis berikut:
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🎓</div>
+                    <h3 class="card-title">Fondasi Matematika Lanjut</h3>
+                    <p class="card-desc">Prasyarat untuk menguasai fungsi kuadrat, komposisi fungsi, invers, limit, dan kalkulus.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">💻</div>
+                    <h3 class="card-title">Literasi Digital</h3>
+                    <p class="card-desc">Konsep fungsi adalah dasar pemrograman, database, dan logika komputasi.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Analisis Data</h3>
+                    <p class="card-desc">Pemahaman fungsi penting untuk statistika, machine learning, dan data science.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">💡</div>
+                    <h3 class="card-title">Berpikir Logis</h3>
+                    <p class="card-desc">Melatih kemampuan berpikir abstrak, sistematis, dan analitis.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🌍</div>
+                    <h3 class="card-title">Pemodelan Masalah</h3>
+                    <p class="card-desc">Menerjemahkan masalah nyata ke dalam model matematika untuk solusi optimal.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">🕌</div>
+                    <h3 class="card-title">Penguatan Iman</h3>
+                    <p class="card-desc">Bentuk tadabbur ayat kauniyah yang meningkatkan keimanan melalui pengenalan keteraturan ciptaan Allah.</p>
+                </div>
+            </div>
+
+            <a href="#" class="video-btn">▶ 🎬 Tampilkan Video: Urgensi Mempelajari</a>
+        </div>
+
+        <!-- Keywords -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-letter">✦</div>
+                <h2 class="section-title">Kata Kunci Bab Ini</h2>
+            </div>
+            <div class="keywords">
+                <span class="keyword-tag">Relasi</span>
+                <span class="keyword-tag">Fungsi</span>
+                <span class="keyword-tag">Pemetaan</span>
+                <span class="keyword-tag">Domain</span>
+                <span class="keyword-tag">Kodomain</span>
+                <span class="keyword-tag">Range</span>
+                <span class="keyword-tag">Diagram Panah</span>
+                <span class="keyword-tag">Grafik</span>
+                <span class="keyword-tag">Rumus Fungsi</span>
+                <span class="keyword-tag">Nilai Fungsi</span>
+                <span class="keyword-tag">Korespondensi Satu-satu</span>
+                <span class="keyword-tag">Ayat Kauniyah</span>
+            </div>
+            <blockquote style="margin-top: 30px; border-left: 4px solid var(--accent); padding-left: 20px; font-style: italic; color: var(--muted);">
+                "Dan tidak ada sesuatu melainkan memuji dengan memuji-Nya, tetapi kamu tidak mengerti tasbih mereka."
+                <br><strong>— QS. Al-Isra [17]: 44</strong>
+            </blockquote>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="quiz-box">
+            <h3>📝 Uji Pemahaman Anda</h3>
+            <p>
+                Setelah mempelajari Bab 5, ukur pemahaman Anda melalui uji formatif yang telah disiapkan.<br>
+                Jawab 10 pertanyaan pilihan ganda dan esai singkat.
+            </p>
+            <a href="uji-formatif-5.html" class="quiz-btn">📝 Ikuti Uji Formatif Bab 5 →</a>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="nav-footer">
+            <a href="4.html">← Sebelumnya: Bab 4 UTS</a>
+            <a href="6.html">Selanjutnya → Bab 6: Persamaan Garis Lurus</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p><strong>© 2026 · Fitri Eka Wahyuni, S.Pd.</strong></p>
+        <p>MTsN 6 Agam · Hak Cipta Dilindungi Undang-Undang</p>
+        <p><a href="mailto:fitri.ekawahyuni27@gmail.com">fitri.ekawahyuni27@gmail.com</a></p>
+    </footer>
+
+</body>
+</html>
